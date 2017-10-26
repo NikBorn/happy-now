@@ -1,13 +1,12 @@
 import React from 'react';
-import { toggleFavorite } from '../actions'
-import { switchFavorite } from '../Utils/fourSquareAPI'
+import { toggleFavorite } from '../actions';
+import { switchFavorite } from '../Utils/fourSquareAPI';
 import { connect } from 'react-redux';
 
 
 const LocationCard = (props) => {
-  console.log(props)
-  const locationInfo = props.locationInfo
-  const cardStyle = locationInfo.isFavorite ? 'favorite-card' : 'location-card'
+  const locationInfo = props.locationInfo;
+  const cardStyle = locationInfo.isFavorite ? 'favorite-card' : 'location-card';
 
   return (
     <div className={ cardStyle }>
@@ -16,25 +15,24 @@ const LocationCard = (props) => {
       <h6>{locationInfo.rating}/{locationInfo.ratingSignals}</h6>
       <button onClick={(event) => {
         event.preventDefault();
-        console.log(locationInfo)
-        props.toggleFavorite(switchFavorite(locationInfo))
+        props.toggleFavorite(switchFavorite(locationInfo));
       }}>Fav</button>
     </div>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
     locations: state.locations
-  }
-}
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     toggleFavorite: (locations) => {
       dispatch(toggleFavorite(locations));
     }
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(LocationCard)
+export default connect(mapStateToProps, mapDispatchToProps)(LocationCard);

@@ -5,6 +5,6 @@ import userLocation from './userLocation.js';
 
 
 export default combineReducers({
-locations,
-userLocation,
+  locations,
+  userLocation
 });

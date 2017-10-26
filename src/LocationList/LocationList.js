@@ -4,25 +4,23 @@ import { connect } from 'react-redux';
 
 
 const  LocationList = (props) => {
-
   const listObjs = props.locations.map(locationInfo => {
-    return <LocationCard locationInfo = { locationInfo } />
-  }) 
-
+    return <LocationCard 
+      key={locationInfo.id} 
+      locationInfo = { locationInfo } />;
+  }); 
 
   return (
     <div>
       { listObjs }
     </div>
-  )
-}
-
-
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
     locations: state.locations
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, null)(LocationList)
+export default connect(mapStateToProps, null)(LocationList);
