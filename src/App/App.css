@@ -32,3 +32,11 @@
   height: 400px;
   border: 2px solid magenta;
 }
+
+.favorite-card {
+  background-color: magenta;
+}
+
+.location-card {
+  background-color: transparent
+}
