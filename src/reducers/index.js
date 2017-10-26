@@ -3,5 +3,6 @@ import locations from './locations.js';
 
 
 export default combineReducers({
-locations
+locations,
+userLocation,
 });
