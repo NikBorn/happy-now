@@ -18,20 +18,16 @@ class App extends Component {
     }
   }
 
-  handleSubmit(query) {
-    this.getClosestVenues(query);
-  }
-
   fetchLocations () {
-   return getLocations('Bars')
+   getLocations('Bars')
+    //  .then(response => console.log(response.response.groups[0].items))
+  //  .then(res => console.log(res))
   }
   
   componentDidMount () {
    this.fetchLocations()
-   console.log(mockLocationsResponse)
-   const mockArray = mockLocationsResponse
-   this.props.setLocations(mockArray)
-  //  .then(res => console.log(res))
+   
+   this.props.setLocations(mockLocationsResponse)
   }
 
   render() {
