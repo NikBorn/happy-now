@@ -6,28 +6,26 @@ import { googleAPIKey, fourSquareClientId, fourSquareClientSecret } from '../Uti
 import { setLocations } from '../actions/index.js';
 import { connect } from 'react-redux';
 import { getLocations } from '../Utils/fourSquareAPI.js';
-import { mockLocationsResponse } from '../Utils/mockData'
-
-
+import { mockLocationsResponse } from '../Utils/mockData';
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
       venues: []
-    }
+    };
   }
 
   fetchLocations () {
-   getLocations('Bars')
+    getLocations('Bars');
     //  .then(response => console.log(response.response.groups[0].items))
   //  .then(res => console.log(res))
   }
   
   componentDidMount () {
-   this.fetchLocations()
+    this.fetchLocations();
    
-   this.props.setLocations(mockLocationsResponse)
+    this.props.setLocations(mockLocationsResponse);
   }
 
   render() {
@@ -49,13 +47,13 @@ const mapDispatchToProps = (dispatch) => {
     setLocations: (locations) => {
       dispatch(setLocations(locations));
     }
-  }
-}
+  };
+};
 
 const mapStateToProps = (state) => {
   return {
     locations: state.locations
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App);

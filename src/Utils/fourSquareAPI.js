@@ -1,12 +1,12 @@
-import { setLocations } from '../actions'
+import { setLocations } from '../actions';
 
 
 
 export const getUserLocation = (callback) => {
   navigator.geolocation.getCurrentPosition(function (location) {
-    callback(location.coords.latitude + ',' + location.coords.longitude)
-  })
-}
+    callback(location.coords.latitude + ',' + location.coords.longitude);
+  });
+};
 
 export const getLocations = (query) => {
 
@@ -26,20 +26,20 @@ export const getLocations = (query) => {
     return fetch(venuesEndpoint + new URLSearchParams(params), {
       method: 'GET'
     })
-    .then(response => response.json())
-    .then(response => response.response.groups[0].items)
-    .then(res => {
-      return res.map(place=> {
-        return Object.assign({isFavorite: false}, place.venue)
-      })  
-    })
-    .then(resp => console.log(resp))
-    })
-}
+      .then(response => response.json())
+      .then(response => response.response.groups[0].items)
+      .then(res => {
+        return res.map(place=> {
+          return Object.assign({isFavorite: false}, place.venue);
+        });  
+      })
+      .then(resp => console.log(resp));
+  });
+};
 
 export const switchFavorite = (locationInfo) => {
   locationInfo.isFavorite = !locationInfo.isFavorite;
-  return locationInfo
-}
+  return locationInfo;
+};
 
 

@@ -4,6 +4,6 @@ import ReactDOM from 'react-dom';
 
 const Map = () => {
 
-}
+};
 
-export defualt Map;
+export default Map;
