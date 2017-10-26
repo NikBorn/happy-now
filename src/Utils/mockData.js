@@ -6,7 +6,8 @@ export const mockLocationsResponse = [
     price: { tier: 2, message: "Moderate", currency: "$" },
     rating: 8.4,
     ratingSignals: 84,
-    contact:{phone: "3032551400", formattedPhone: "(303) 255-1400", twitter: "biggyglenn", facebook: "115875251829275", facebookName: "Glenn Bar" }
+    contact:{phone: "3032551400", formattedPhone: "(303) 255-1400", twitter: "biggyglenn", facebook: "115875251829275", facebookName: "Glenn Bar" },
+    isFavorite: false
   },
   {
     name: "Tequila Rock",

@@ -17,7 +17,7 @@ import { setLocations } from '../actions'
       const params = {
         client_id: '20SGZBSFIJ2PAEM2E53DTZNVFZ5K1E4GHCNBKTXM14JVDKBD',
         client_secret: 'C10LMFZC53BRQNH3CJ50SBWJLVWIPTQI4WYPKMPGYE0KZAXB',
-        limit: 1000,
+        limit: 100,
         query: query,
         v: '20130619',
         ll: latlong
@@ -27,10 +27,13 @@ import { setLocations } from '../actions'
         method: 'GET'
       })
       .then(response => response.json())
-      .then(response => {
-        console.log(response.response.groups[0].items)
-        return response.response.groups[0].items
+      .then(response => response.response.groups[0].items)
+      .then(res => {
+        return res.map(place=> {
+          return Object.assign({isFavorite: false}, place)
+        })  
       })
+      .then(resp => console.log(resp))
       })
     }
 
