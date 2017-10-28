@@ -1,6 +1,3 @@
-import { setLocations } from '../actions';
-
-
 
 export const getUserLocation = (callback) => {
   navigator.geolocation.getCurrentPosition(function (location) {
