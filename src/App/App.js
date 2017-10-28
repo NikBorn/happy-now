@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from '../Header/Header.js';
 import LocationList from '../LocationList/LocationList.js';
-import { googleAPIKey, fourSquareClientId, fourSquareClientSecret } from '../Utils/APIKeys.js';
+// import { googleAPIKey, fourSquareClientId, fourSquareClientSecret } from '../Utils/APIKeys.js';
 import { setLocations } from '../actions/index.js';
 import { connect } from 'react-redux';
 import { getLocations } from '../Utils/fourSquareAPI.js';
 import { mockLocationsResponse } from '../Utils/mockData';
+import fire from './fire';
 
 class App extends Component {
   constructor() {
