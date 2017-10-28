@@ -1,6 +1,6 @@
 import React from 'react';
-import { toggleFavorite } from '../actions';
-import { switchFavorite } from '../Utils/fourSquareAPI';
+import { toggleFavorite } from '../../actions';
+import { switchFavorite } from '../../Utils/fourSquareAPI';
 import { connect } from 'react-redux';
 
 
