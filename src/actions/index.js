@@ -11,3 +11,10 @@ export const toggleFavorite = (location) => {
     location
   }
 }
+
+export const setActiveuser = (user) => {
+  return {
+    type: 'SET_ACTIVE_USER',
+    user
+  }
+}
