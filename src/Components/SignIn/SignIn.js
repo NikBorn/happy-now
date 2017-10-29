@@ -45,7 +45,7 @@ class SignIn extends Component {
 
   render() {
     return(
-      <div className="Login-Logout">
+      <div className="login-logout">
         {this.state.user ?
           <button onClick={this.logout}>Log Out</button>
           :

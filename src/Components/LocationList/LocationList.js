@@ -11,7 +11,7 @@ const  LocationList = (props) => {
   }); 
 
   return (
-    <div>
+    <div className='location-list'>
       { listObjs }
     </div>
   );

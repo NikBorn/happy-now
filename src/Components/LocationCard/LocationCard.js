@@ -1,12 +1,12 @@
 import React from 'react';
 import { toggleFavorite } from '../../actions';
-import { switchFavorite } from '../../Utils/fourSquareAPI';
+import { switchFavorite } from '../../Utils/helper';
 import { connect } from 'react-redux';
 
 
 const LocationCard = (props) => {
   const locationInfo = props.locationInfo;
-  const cardStyle = locationInfo.isFavorite ? 'favorite-card' : 'location-card';
+  const cardStyle = locationInfo.isFavorite ? 'favorite-card location-card' : 'location-card';
 
   return (
     <div className={ cardStyle }>
