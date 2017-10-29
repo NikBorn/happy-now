@@ -4,7 +4,7 @@ import React from 'react';
 const Header = () => {
 
   return (
-    <div>
+    <div className='header-section'>
       <h1>HappyNow?</h1>
       <h4>Find current and upcoming happy hour specials near you</h4>
     </div>

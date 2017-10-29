@@ -5,10 +5,13 @@ import LocationList from '../LocationList/LocationList.js';
 // import { googleAPIKey, fourSquareClientId, fourSquareClientSecret } from '../Utils/APIKeys.js';
 import { setLocations } from '../../actions/index.js';
 import { connect } from 'react-redux';
-import { getLocations } from '../../Utils/fourSquareAPI.js';
+import getLocations from '../../Utils/fourSquareAPI.js';
 import { mockLocationsResponse } from '../../Utils/mockData';
 import fire from '../../fire.js';
-import SignIn from '../SignIn/SignIn.js'
+import SignIn from '../SignIn/SignIn.js';
+import Map from '../Map/Map.js';
+import LocationListContainer from '../LocationListContainer'
+
 
 class App extends Component {
   constructor() {
@@ -18,16 +21,17 @@ class App extends Component {
     };
   }
 
-  fetchLocations () {
-    getLocations('Bars');
+  fetctMockLocations () {
+    getLocations('Bars')
+    // .then(res=> console.log(res))
     //  .then(response => console.log(response.response.groups[0].items))
   //  .then(res => console.log(res))
   }
   
   componentDidMount () {
-    this.fetchLocations();
-   
-    this.props.setLocations(mockLocationsResponse);
+    // this.props.fetchLocations('Bars')
+    // this.fetctMockLocations()
+    // this.props.setLocations(mockLocationsResponse);
   }
 
   render() {
@@ -35,11 +39,12 @@ class App extends Component {
       <div className="App">
         <Header />
         <SignIn />
-        {
-          this.props.locations.length &&
-        <LocationList />
-        }
-        
+        <div className='body'>
+      
+            <LocationListContainer />
+          
+          <Map />
+        </div>  
       </div>
     );
   }
@@ -49,7 +54,10 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setLocations: (locations) => {
       dispatch(setLocations(locations));
-    }
+    },
+    // fetchLocations: (query) => {
+    //   dispatch(fetchLocations(query))
+    // }
   };
 };
 
