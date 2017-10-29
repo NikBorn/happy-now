@@ -36,6 +36,7 @@ html {
   margin-bottom: 10px;
   display: block;
   color: #2F5F96;
+  padding-bottom: 6px;
 }
 
 .favorite-card {
@@ -61,4 +62,16 @@ html {
 
 .login-logout {
   display: block;
+}
+
+.card-header {
+  background-color: #7AA0DB;
+  color: #F4F3F2;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+.favorite-card-header {
+    /* background-color: #7AA0DB; */
+    color: #f7f121;
 }

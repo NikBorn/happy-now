@@ -6,17 +6,22 @@ import { connect } from 'react-redux';
 
 const LocationCard = (props) => {
   const locationInfo = props.locationInfo;
-  const cardStyle = locationInfo.isFavorite ? 'favorite-card location-card' : 'location-card';
-
+  const cardStyle = locationInfo.isFavorite ? 'favorite-card-header card-header' : 'card-header';
+  console.log(locationInfo)
   return (
-    <div className={ cardStyle }>
-      <h4>{locationInfo.name}</h4>
+    <div className='location-card'>
+      <div className={cardStyle}>
+        <h4>{locationInfo.name}</h4>
+      </div>
       <h6>{locationInfo.contact.formattedPhone}</h6>
-      <h6>{locationInfo.rating}/{locationInfo.ratingSignals}</h6>
+      <h6>{locationInfo.location.formattedAddress[0]}</h6>
+      <h6>{locationInfo.location.formattedAddress[1]}</h6>
+      <h5>{locationInfo.rating}/{locationInfo.ratingSignals}</h5>
+      
       <button onClick={(event) => {
         event.preventDefault();
         props.toggleFavorite(switchFavorite(locationInfo));
-      }}>Fav</button>
+      }}>{locationInfo.isFavorite ? 'unFav' : 'Fav' }</button>
     </div>
   );
 };
