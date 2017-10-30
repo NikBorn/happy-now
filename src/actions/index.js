@@ -19,6 +19,12 @@ export const setActiveuser = (user) => {
   }
 }
 
+export const increaseCount = () => {
+  return {
+    type: 'INCREASE_COUNT'
+  }
+}
+
 
 // export const getUserLocation = (callback) => {
 //   navigator.geolocation.getCurrentPosition(function (location) {
