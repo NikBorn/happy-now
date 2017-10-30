@@ -17,10 +17,6 @@ const  LocationList = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    locations: state.locations
-  };
-};
 
-export default connect(mapStateToProps, null)(LocationList);
+
+export default LocationList;

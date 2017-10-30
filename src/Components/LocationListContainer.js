@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import LocationList from './LocationList/LocationList';
 import { setLocations } from '../actions/index';
 import { connect } from 'react-redux';
+import ShowMoreButton from './ShowMoreButton/ShowMoreButton.js'
 
 
 class LocationListContainer extends Component {
@@ -14,7 +15,7 @@ class LocationListContainer extends Component {
     navigator.geolocation.getCurrentPosition(function (location) {
       callback(location.coords.latitude + ',' + location.coords.longitude);
     });
-  };
+  }
 
   getLocations(query) {
 
@@ -35,31 +36,37 @@ class LocationListContainer extends Component {
         method: 'GET'
       })
         .then(response => response.json())
-      .then(response => response.response.groups[0].items)
-      .then(res => {
-        return res.map(place=> {
-          return Object.assign({isFavorite: false}, place.venue);
-        });  
-      })
-      .then(resp => this.props.setLocations(resp));
+        .then(response => response.response.groups[0].items)
+        .then(res => {
+          return res.map(place=> {
+            return Object.assign({isFavorite: false}, place.venue);
+          });  
+        })
+        .then(resp => this.props.setLocations(resp));
     });
-  };
+  }
 
   componentDidMount() {
-    this.getLocations('Bars')
+    this.getLocations('Bars');
   }
 
   render() {
+    const showTen = this.props.locations.filter((location, index)=> {
+      if (index < this.props.count) {
+        return location;
+      }
+    })
     return (
       <div>
         {
           !this.props.locations.length &&
           <div>Loading</div>
         }
-    {this.props.locations && 
-        <LocationList />}
+        {this.props.locations && 
+        <LocationList locations={showTen} />}
+        <ShowMoreButton/>
       </div>
-    )
+    );
   }
 }
 
@@ -73,7 +80,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    locations: state.locations
+    locations: state.locations,
+    count: state.count
   };
 };
 
