@@ -1,5 +1,5 @@
 import firebase from 'firebase'
-var config = { /* COPY THE ACTUAL CONFIG FROM FIREBASE CONSOLE */
+var config = {
   apiKey: "AIzaSyD8xi6mRJzp-pYyy6aCHbdQpF6dsRgOjoQ",
   authDomain: "happy-now.firebaseapp.com",
   databaseURL: "https://happy-now.firebaseio.com",
