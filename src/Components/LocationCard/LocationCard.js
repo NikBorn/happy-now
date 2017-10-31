@@ -1,5 +1,5 @@
 import React from 'react';
-import { toggleFavorite } from '../../actions';
+import { toggleFavorite, removeFavorite, addFavorite } from '../../actions';
 import { switchFavorite } from '../../Utils/helper';
 import { connect } from 'react-redux';
 
@@ -7,8 +7,16 @@ import { connect } from 'react-redux';
 const LocationCard = (props) => {
   const locationInfo = props.locationInfo;
   const cardStyle = locationInfo.isFavorite ? 'favorite-card-header card-header' : 'card-header';
-  console.log(locationInfo)
-  const favStyle = locationInfo.isFavorite ? 'favorite-button favorite-button-selected' : 'favorite-button'
+  console.log(locationInfo);
+  const favStyle = locationInfo.isFavorite ? 'favorite-button favorite-button-selected' : 'favorite-button';
+  const handleClick = (location) => {
+    if (location.isFavorite) {
+      props.removeFavorite(location)
+    } else {
+      props.addFavorite(location)
+    }
+  }
+
   return (
     <div className='location-card'>
       <div className={cardStyle}>
@@ -19,25 +27,34 @@ const LocationCard = (props) => {
       <h6>{locationInfo.location.formattedAddress[1]}</h6>
       <h5>{locationInfo.rating} rating from {locationInfo.ratingSignals} reviews</h5>
       
+      
       <button className={favStyle}
         onClick={(event) => {
-        event.preventDefault();
-        props.toggleFavorite(switchFavorite(locationInfo));
-      }}>{locationInfo.isFavorite ? 'Unfav' : 'Fav' }</button>
+          event.preventDefault();
+          handleClick(locationInfo);
+          props.toggleFavorite(switchFavorite(locationInfo));
+        }}>{locationInfo.isFavorite ? 'Unfav' : 'Fav' }</button>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
-    locations: state.locations
+    locations: state.locations,
+    favorites: state.favorites
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleFavorite: (locations) => {
-      dispatch(toggleFavorite(locations));
+    toggleFavorite: (location) => {
+      dispatch(toggleFavorite(location));
+    },
+    addFavorite: (location) => {
+      dispatch(addFavorite(location))
+    },
+    removeFavorite: (location) => {
+      dispatch(removeFavorite(location))
     }
   };
 };
