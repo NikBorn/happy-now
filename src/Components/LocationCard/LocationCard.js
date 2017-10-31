@@ -8,6 +8,7 @@ const LocationCard = (props) => {
   const locationInfo = props.locationInfo;
   const cardStyle = locationInfo.isFavorite ? 'favorite-card-header card-header' : 'card-header';
   console.log(locationInfo)
+  const favStyle = locationInfo.isFavorite ? 'favorite-button favorite-button-selected' : 'favorite-button'
   return (
     <div className='location-card'>
       <div className={cardStyle}>
@@ -16,12 +17,13 @@ const LocationCard = (props) => {
       <h6>{locationInfo.contact.formattedPhone}</h6>
       <h6>{locationInfo.location.formattedAddress[0]}</h6>
       <h6>{locationInfo.location.formattedAddress[1]}</h6>
-      <h5>{locationInfo.rating}/{locationInfo.ratingSignals}</h5>
+      <h5>{locationInfo.rating} rating from {locationInfo.ratingSignals} reviews</h5>
       
-      <button onClick={(event) => {
+      <button className={favStyle}
+        onClick={(event) => {
         event.preventDefault();
         props.toggleFavorite(switchFavorite(locationInfo));
-      }}>{locationInfo.isFavorite ? 'unFav' : 'Fav' }</button>
+      }}>{locationInfo.isFavorite ? 'Unfav' : 'Fav' }</button>
     </div>
   );
 };

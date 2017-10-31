@@ -44,12 +44,13 @@ class SignIn extends Component {
   }
 
   render() {
+    const userName = this.props.activeUser ? this.props.activeUser.displayName : ''
     return(
-      <div className="login-logout">
+      <div className="login-logout" >
         {this.state.user ?
-          <button onClick={this.logout}>Log Out</button>
+          <button className="login-logout-button" onClick={this.logout}>Log Out, {userName}</button>
           :
-          <button onClick={this.login}>Log In</button>
+          <button className="login-logout-button" onClick={this.login}>Log In</button>
         }
       </div>
     )
@@ -67,7 +68,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    locations: state.locations
+    locations: state.locations,
+    activeUser: state.activeUser
   };
 };
 
