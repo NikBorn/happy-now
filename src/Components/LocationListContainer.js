@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import LocationList from './LocationList/LocationList';
 import { setLocations } from '../actions/index';
 import { connect } from 'react-redux';
-import ShowMoreButton from './ShowMoreButton/ShowMoreButton.js'
+import ShowMoreButton from './ShowMoreButton/ShowMoreButton.js';
+import LoadingScreen from './LoadingScreen/LoadingScreen';
+
 
 
 class LocationListContainer extends Component {
@@ -56,14 +58,10 @@ class LocationListContainer extends Component {
         return location;
       }
     })
+    const showList = this.props.locations.length ? <LocationList locations={showTen} /> : <LoadingScreen />
     return (
-      <div>
-        {
-          !this.props.locations.length &&
-          <div>Loading</div>
-        }
-        {this.props.locations && 
-        <LocationList locations={showTen} />}
+      <div className='location-list-container' >
+        { showList }
         <ShowMoreButton/>
       </div>
     );

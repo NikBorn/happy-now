@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 const ShowMoreButton = (props) => {
   console.log(props)
   return (
-    <button 
+    <button className='show-more'
       onClick={event=> {
       event.preventDefault();
       props.increaseCount();

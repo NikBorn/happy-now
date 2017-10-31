@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+button:focus {
+  outline: 0;
+}
+
 div {
   display: inline-block;
 }
@@ -36,7 +40,24 @@ html {
   margin-bottom: 10px;
   display: block;
   color: #2F5F96;
-  padding-bottom: 6px;
+  padding-bottom: 22px;
+}
+
+.favorite-button {
+  float: right;
+  margin-right: 10px;
+  border: none;
+  background-color: transparent;
+  /* margin-bottom: 20px; */
+  color: #2F5F96;
+}
+
+/* .favorite-button-selected {
+  color: #f7f121;
+} */
+
+.favorite-button:hover {
+  color: #7AA0DB;
 }
 
 .favorite-card {
@@ -46,22 +67,48 @@ html {
 .header-section {
   background-color: #2F5F96;
   color: #f7f121;
-  padding: 20px 0;
+  padding: 20px 0 30px 0;
   display: block;
+  margin-bottom: 14px;
 }
 
-.location-list {
+.location-list,
+.loading-screen {
   display: inline-block;
   border: 2px solid #7AA0DB;
   width: 300px;
   background-color: #2F5F96;
   padding: 10px;
-  height: 500px;
+  height: 530px;
   overflow: scroll;
+  color: #F4F3F2;
 }
 
 .login-logout {
   display: block;
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.login-logout-button,
+.show-favorites-button {
+  color: #F4F3F2;
+  font-size: 14px;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.login-logout-button:hover,
+.show-favorites-button:hover {
+  color: #f7f121;
+  font-size: 16px;
+}
+
+.show-favorites-button {
+  float: right;
+  margin-right: 10px;
 }
 
 .card-header {
@@ -75,3 +122,28 @@ html {
     /* background-color: #7AA0DB; */
     color: #f7f121;
 }
+
+.show-more {
+  display: block;
+  background-color: #7AA0DB;
+  color: #F4F3F2;
+  padding: 10px;
+  border-radius: 0;
+  font-size: 14px;
+  align-self: center;
+  border: none;
+  margin-top: 10px;
+}
+
+.show-more:hover {
+  background-color: #2F5F96;
+  color: #f7f121;
+}
+
+.location-list-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
