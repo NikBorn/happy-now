@@ -21,17 +21,7 @@ class App extends Component {
     };
   }
 
-  fetctMockLocations () {
-    getLocations('Bars')
-    // .then(res=> console.log(res))
-    //  .then(response => console.log(response.response.groups[0].items))
-  //  .then(res => console.log(res))
-  }
-  
   componentDidMount () {
-    // this.props.fetchLocations('Bars')
-    // this.fetctMockLocations()
-    // this.props.setLocations(mockLocationsResponse);
   }
 
   render() {
@@ -39,10 +29,8 @@ class App extends Component {
       <div className="App">
         <Header />
         <div className='body'>
-      
-            <LocationListContainer />
-{/* 
-            < Map
+          <LocationListContainer />
+        {/* < Map
               isMarkerShown
               googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
               loadingElement={<div style={{ height: `100%` }} />}
@@ -60,9 +48,6 @@ const mapDispatchToProps = (dispatch) => {
     setLocations: (locations) => {
       dispatch(setLocations(locations));
     },
-    // fetchLocations: (query) => {
-    //   dispatch(fetchLocations(query))
-    // }
   };
 };
 

@@ -5,9 +5,9 @@ export const switchFavorite = (locationInfo) => {
   return locationInfo;
 };
 
-export const updateUser = (userId, user, userFavorites) => {
+export const updateUser = (userId, favorites) => {
   firebase.database().ref('users/' + userId).set({
-    user: user.displayName,
-    favorites: userFavorites
+    user: userId,
+    favorites: favorites
   });
 };

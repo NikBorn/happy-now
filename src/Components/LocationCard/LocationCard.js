@@ -1,17 +1,19 @@
 import React from 'react';
 import { toggleFavorite, removeFavorite, addFavorite } from '../../actions';
-import { switchFavorite } from '../../Utils/helper';
+import { switchFavorite, updateUser } from '../../Utils/helper';
 import { connect } from 'react-redux';
 
 
 const LocationCard = (props) => {
   const locationInfo = props.locationInfo;
   const cardStyle = locationInfo.isFavorite ? 'favorite-card-header card-header' : 'card-header';
-  console.log(locationInfo);
   const favStyle = locationInfo.isFavorite ? 'favorite-button favorite-button-selected' : 'favorite-button';
+
   const handleClick = (location) => {
+    const userFavs = props.favorites
     if (location.isFavorite) {
       props.removeFavorite(location)
+      // props.updateUser()
     } else {
       props.addFavorite(location)
     }
@@ -32,6 +34,7 @@ const LocationCard = (props) => {
         onClick={(event) => {
           event.preventDefault();
           handleClick(locationInfo);
+          console.log(props.favorites)
           props.toggleFavorite(switchFavorite(locationInfo));
         }}>{locationInfo.isFavorite ? 'Unfav' : 'Fav' }</button>
     </div>
