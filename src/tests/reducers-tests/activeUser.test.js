@@ -1,10 +1,9 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import activeUser from '../../reducers/activeUser.js';
-import mockUser from '../../Utils/mockData.js'
+import mockUser from '../../Utils/mockData.js';
 
-
-describe('activeUser', () => {
+describe('activeUser reducer', () => {
 
   it('should return a default state of NULL and also NULL on sign out', () => {
     const expectation = null;
