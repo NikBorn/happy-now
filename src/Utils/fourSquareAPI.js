@@ -1,8 +1,6 @@
 import { setLocations } from '../actions/index.js';
 import { connect } from 'react-redux';
 
-
-
 const getUserLocation = (callback) => {
   navigator.geolocation.getCurrentPosition(function (location) {
     callback(location.coords.latitude + ',' + location.coords.longitude);
@@ -28,36 +26,9 @@ const getLocations = (query) => {
       method: 'GET'
     })
       .then(response => response.json())
-      // .then(response => response.response.groups[0].items)
-      // .then(res => {
-      //   return res.map(place=> {
-      //     return Object.assign({isFavorite: false}, place.venue);
-      //   });  
-      // })
-      // .then(resp => console.log(resp));
   });
 };
 
-
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setLocations: (locations) => {
-      dispatch(setLocations(locations));
-    },
-    // fetchLocations: (query) => {
-    //   dispatch(fetchLocations(query))
-    // }
-  };
-};
-
-const mapStateToProps = (state) => {
-  return {
-    locations: state.locations
-  };
-};
-
-// export default connect(mapStateToProps, mapDispatchToProps)(getLocations);
 export default getLocations;
 
 

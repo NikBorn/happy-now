@@ -9,10 +9,6 @@ import LoadingScreen from './LoadingScreen/LoadingScreen';
 
 class LocationListContainer extends Component {
 
-  constructor() {
-    super();
-  }
-
   getUserLocation(callback) {
     navigator.geolocation.getCurrentPosition(function (location) {
       callback(location.coords.latitude + ',' + location.coords.longitude);
@@ -56,6 +52,8 @@ class LocationListContainer extends Component {
     const showTen = this.props.locations.filter((location, index)=> {
       if (index < this.props.count) {
         return location;
+      } else {
+        return null;
       }
     })
     const showList = this.props.locations.length ? <LocationList locations={showTen} /> : <LoadingScreen />
@@ -84,5 +82,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationListContainer);
-
-// export default LocationListContainer

@@ -1,6 +1,6 @@
 import React from 'react';
 import { toggleFavorite, removeFavorite, addFavorite } from '../../actions';
-import { switchFavorite, updateUser } from '../../Utils/helper';
+import { switchFavorite } from '../../Utils/helper';
 import { connect } from 'react-redux';
 
 
@@ -10,10 +10,8 @@ const LocationCard = (props) => {
   const favStyle = locationInfo.isFavorite ? 'favorite-button favorite-button-selected' : 'favorite-button';
 
   const handleClick = (location) => {
-    const userFavs = props.favorites
     if (location.isFavorite) {
       props.removeFavorite(location)
-      // props.updateUser()
     } else {
       props.addFavorite(location)
     }
