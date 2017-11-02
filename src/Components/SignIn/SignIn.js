@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import fire, { auth, provider } from '../../fire';
+import { auth, provider } from '../../fire';
 import { connect } from 'react-redux';
 import { setActiveuser } from '../../actions/index.js';
 

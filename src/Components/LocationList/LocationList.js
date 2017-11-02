@@ -1,6 +1,5 @@
 import React from 'react';
 import LocationCard from '../LocationCard/LocationCard.js';
-import { connect } from 'react-redux';
 
 
 const  LocationList = (props) => {
