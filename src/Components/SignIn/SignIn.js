@@ -25,7 +25,7 @@ class SignIn extends Component {
   login() {
     auth.signInWithPopup(provider)
       .then((result) => {
-        console.log(result.user)
+        
         this.props.setActiveuser(result.user);
       });
   }
