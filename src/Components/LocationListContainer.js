@@ -49,15 +49,8 @@ class LocationListContainer extends Component {
   }
 
   render() {
-    const showTen = this.props.locations.filter((location, index)=> {
-      if (index < this.props.count) {
-        return location;
-      } else {
-        return null;
-      }
-    });
     
-    const showList = this.props.locations.length ? <LocationList locations={showTen} /> : <LoadingScreen />
+    const showList = this.props.locations.length ? <LocationList locations={this.props.locations} count={this.props.count} /> : <LoadingScreen />
     return (
       <div className='location-list-container' >
         { showList }
