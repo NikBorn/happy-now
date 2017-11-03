@@ -1,26 +1,25 @@
 import React from 'react';
+import beer from '../../Assets/beer.gif'
 
 const LoadingScreen = () => {
-  const Smiley = require(`../../Assets/Smiley.svg`);
 
   const divStyle = {
-    backgroundImage: `url(${Smiley})`,
     display: 'inline-block',
     border: '2px solid #7AA0DB',
     width: '300px',
-    backgroundColor: '#2F5F96',
+    backgroundColor: '#FFF',
     padding: '10px',
     height: '530px',
-    color: '#F4F3F2',
+    color: '#2F5F96',
     backgroundRepeat: 'no-repeat'
-  }
+  };
 
-  return(
+  return (
     <div style={divStyle}>
-      <p>LOADING YOUR HAPPY PLACES</p>
-      {Smiley}
+      <p className='loading-text'>LOADING YOUR HAPPY PLACES</p>
+      <img src={beer} className='beer-loading' alt='beer' />
     </div>
-  )
-}
+  );
+};
 
 export default LoadingScreen;

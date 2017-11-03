@@ -78,11 +78,12 @@ html {
   border: 2px solid #7AA0DB;
   width: 300px;
   background-color: #2F5F96;
+  color: #F4F3F2;
   padding: 10px;
   height: 530px;
   overflow: scroll;
-  color: #F4F3F2;
 }
+
 
 .login-logout {
   display: block;
@@ -145,5 +146,15 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.beer-loading {
+  margin-top: 120px;
+  width: 260px
+}
+
+.loading-text {
+  margin-top: 20px;
+  font-weight: bold;
 }
 
