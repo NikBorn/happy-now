@@ -55,7 +55,8 @@ class LocationListContainer extends Component {
       } else {
         return null;
       }
-    })
+    });
+    
     const showList = this.props.locations.length ? <LocationList locations={showTen} /> : <LoadingScreen />
     return (
       <div className='location-list-container' >

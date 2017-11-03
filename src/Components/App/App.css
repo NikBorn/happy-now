@@ -89,6 +89,11 @@ html {
   overflow: scroll;
 }
 
+.loading-screen {
+  color: #111214;
+  background-color: #FFF
+}
+
 
 .login-logout {
   display: block;
