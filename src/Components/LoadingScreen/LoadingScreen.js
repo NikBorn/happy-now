@@ -5,12 +5,12 @@ const LoadingScreen = () => {
 
   const divStyle = {
     display: 'inline-block',
-    border: '2px solid #7AA0DB',
+    border: '2px solid #808589',
     width: '300px',
     backgroundColor: '#FFF',
     padding: '10px',
     height: '530px',
-    color: '#2F5F96',
+    color: '#111214',
     backgroundRepeat: 'no-repeat'
   };
 

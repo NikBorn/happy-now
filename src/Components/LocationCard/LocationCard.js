@@ -28,9 +28,9 @@ const LocationCard = (props) => {
       <div className={cardStyle}>
         <h4>{locationInfo.name}</h4>
       </div>
-      <h6>{locationInfo.contact.formattedPhone}</h6>
-      <h6>{locationInfo.location.formattedAddress[0]}</h6>
-      <h6>{locationInfo.location.formattedAddress[1]}</h6>
+      <h5>{locationInfo.contact.formattedPhone}</h5>
+      <h5>{locationInfo.location.formattedAddress[0]}</h5>
+      <h5>{locationInfo.location.formattedAddress[1]}</h5>
       <h5>{locationInfo.rating} rating from {locationInfo.ratingSignals} reviews
       </h5>
       
