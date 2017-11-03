@@ -21,6 +21,9 @@ html {
 .App {
   text-align: center;
   width: 100vw;
+  background-image: url(../../Assets/lost-in-the-crowd.jpg);
+  min-height: 100vh;
+  
 }
 
 .body{
@@ -31,15 +34,15 @@ html {
 .map {
   width: 600px;
   height: 500px;
-  border: 2px solid #7AA0DB;
+  border: 2px solid #808589;
   display: inline-block;
 }
 
 .location-card {
-  background-color: #F4F3F2;
+  background-color: rgba(244, 243, 242, 0.792);
   margin-bottom: 10px;
   display: block;
-  color: #2F5F96;
+  color: #111214;
   padding-bottom: 22px;
 }
 
@@ -49,7 +52,8 @@ html {
   border: none;
   background-color: transparent;
   /* margin-bottom: 20px; */
-  color: #2F5F96;
+  color: #111214;
+  font-weight: bold;
 }
 
 /* .favorite-button-selected {
@@ -57,30 +61,31 @@ html {
 } */
 
 .favorite-button:hover {
-  color: #7AA0DB;
+  color: #808589;
 }
 
 .favorite-card {
-  background-color: #7AA0DB;
+  background-color: #808589;
 }
 
 .header-section {
-  background-color: #2F5F96;
+  background-color: #11121495;
   color: #f7f121;
   padding: 20px 0 30px 0;
   display: block;
-  margin-bottom: 14px;
+  /* margin-bottom: 14px; */
 }
 
 .location-list,
 .loading-screen {
+  margin-top: 14px;
   display: inline-block;
-  border: 2px solid #7AA0DB;
-  width: 300px;
-  background-color: #2F5F96;
+  border: 2px solid #808589;
+  width: 400px;
+  background-color: #11121499;
   color: #F4F3F2;
   padding: 10px;
-  height: 530px;
+  height: 500px;
   overflow: scroll;
 }
 
@@ -113,32 +118,34 @@ html {
 }
 
 .card-header {
-  background-color: #7AA0DB;
+  background-color: #111214;
   color: #F4F3F2;
   width: 100%;
   margin-bottom: 6px;
 }
 
 .favorite-card-header {
-    /* background-color: #7AA0DB; */
-    color: #f7f121;
+    /* background-color: #808589; */
+    background-color: #f7f121;
+    color: #111214;
 }
 
 .show-more {
   display: block;
-  background-color: #7AA0DB;
-  color: #F4F3F2;
+  background-color: #F4F3F299;
+  color: #111214;
   padding: 10px;
   border-radius: 0;
   font-size: 14px;
   align-self: center;
-  border: none;
+  border: 2px solid #111214;
   margin-top: 10px;
+  font-weight: bold;
 }
 
 .show-more:hover {
-  background-color: #2F5F96;
-  color: #f7f121;
+  color: #111214;
+  background-color: #f7f121;
 }
 
 .location-list-container {
@@ -157,4 +164,6 @@ html {
   margin-top: 20px;
   font-weight: bold;
 }
+
+
 
