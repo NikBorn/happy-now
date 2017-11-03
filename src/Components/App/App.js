@@ -4,6 +4,7 @@ import Header from '../Header/Header.js';
 import { setLocations } from '../../actions/index.js';
 import { connect } from 'react-redux';
 import LocationListContainer from '../LocationListContainer';
+// import Map from '../Map/Map.js';
 
 
 class App extends Component {
@@ -23,6 +24,13 @@ class App extends Component {
         <Header />
         <div className='body'>
           <LocationListContainer />
+          {/* <Map
+            isMarkerShown
+            googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+            loadingElement={<div style={{ height: `100%` }} />}
+            containerElement={<div style={{ height: `400px` }} />}
+            mapElement={<div style={{ height: `100%` }} />}
+          /> */}
         </div>  
       </div>
     );
