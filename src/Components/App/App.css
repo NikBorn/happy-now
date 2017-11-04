@@ -70,7 +70,7 @@ html {
 
 .header-section {
   background-color: #11121495;
-  color: #f7f121;
+  color: #dcd727;
   padding: 20px 0 30px 0;
   display: block;
   /* margin-bottom: 14px; */
@@ -112,7 +112,7 @@ html {
 
 .login-logout-button:hover,
 .show-favorites-button:hover {
-  color: #f7f121;
+  color: #dcd727;
   font-size: 16px;
 }
 
@@ -130,7 +130,7 @@ html {
 
 .favorite-card-header {
     /* background-color: #808589; */
-    background-color: #f7f121;
+    background-color: #dcd727;
     color: #111214;
 }
 
@@ -149,7 +149,7 @@ html {
 
 .show-more:hover {
   color: #111214;
-  background-color: #f7f121;
+  background-color: #dcd727;
 }
 
 .location-list-container {
@@ -169,5 +169,8 @@ html {
   font-weight: bold;
 }
 
+a {
+  color: #1f1e06;
+}
 
 
