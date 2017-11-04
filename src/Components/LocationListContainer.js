@@ -4,8 +4,7 @@ import { setLocations } from '../actions/index';
 import { connect } from 'react-redux';
 import ShowMoreButton from './ShowMoreButton/ShowMoreButton.js';
 import LoadingScreen from './LoadingScreen/LoadingScreen';
-
-
+import PropTypes from 'prop-types';
 
 class LocationListContainer extends Component {
 
@@ -22,11 +21,11 @@ class LocationListContainer extends Component {
     return this.getUserLocation((latlong) => {
 
       const params = {
-        client_id: '20SGZBSFIJ2PAEM2E53DTZNVFZ5K1E4GHCNBKTXM14JVDKBD',
-        client_secret: 'C10LMFZC53BRQNH3CJ50SBWJLVWIPTQI4WYPKMPGYE0KZAXB',
+        'client_id': '20SGZBSFIJ2PAEM2E53DTZNVFZ5K1E4GHCNBKTXM14JVDKBD',
+        'client_secret': 'C10LMFZC53BRQNH3CJ50SBWJLVWIPTQI4WYPKMPGYE0KZAXB',
         limit: 100,
         query: query,
-        v: '20130619',
+        'v': '20130619',
         ll: latlong
       };
 
@@ -49,25 +48,24 @@ class LocationListContainer extends Component {
   }
 
   render() {
-    const showTen = this.props.locations.filter((location, index)=> {
-      if (index < this.props.count) {
-        return location;
-      } else {
-        return null;
-      }
-    });
-    
-    const showList = this.props.locations.length ? <LocationList locations={showTen} /> : <LoadingScreen />
+
+    const listToShow = this.props.showFavorites === true ? 
+      this.props.favorites : this.props.locations;
+
+    const showList = this.props.locations.length ? 
+      <LocationList locations={listToShow} count={this.props.count} /> 
+      : 
+      <LoadingScreen />;
     return (
       <div className='location-list-container' >
         { showList }
-        <ShowMoreButton/>
+        <ShowMoreButton />
       </div>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDTP = (dispatch) => {
   return {
     setLocations: (locations) => {
       dispatch(setLocations(locations));
@@ -75,11 +73,21 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const mapStateToProps = (state) => {
+const mapSTP = (state) => {
   return {
     locations: state.locations,
-    count: state.count
+    count: state.count,
+    showFavorites: state.showFavorites,
+    favorites: state.favorites
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LocationListContainer);
+LocationListContainer.propTypes = {
+  setLocations: PropTypes.func,
+  showFavorites: PropTypes.bool,
+  count: PropTypes.number,
+  locations: PropTypes.array,
+  favorites: PropTypes.array
+};
+
+export default connect(mapSTP, mapDTP)(LocationListContainer);

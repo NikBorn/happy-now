@@ -4,6 +4,7 @@ import userLocation from './userLocation.js';
 import activeUser from './activeUser.js';
 import count from './count.js';
 import favorites from './favorites.js';
+import showFavorites from './showFavorites.js';
 
 
 
@@ -15,5 +16,7 @@ export default combineReducers({
   userLocation,
   activeUser,
   count,
-  favorites
+  favorites,
+  showFavorites
 });
+

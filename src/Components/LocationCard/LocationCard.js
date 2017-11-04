@@ -2,6 +2,7 @@ import React from 'react';
 import { toggleFavorite, removeFavorite, addFavorite } from '../../actions';
 import { switchFavorite } from '../../Utils/helper';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 
 const LocationCard = (props) => {
@@ -43,6 +44,14 @@ const LocationCard = (props) => {
         }}>{locationInfo.isFavorite ? 'Unfav' : 'Fav' }</button>
     </div>
   );
+};
+
+
+LocationCard.propTypes = {
+  locationInfo: PropTypes.object,
+  removeFavorite: PropTypes.func,
+  addFavorite: PropTypes.func,
+  toggleFavorite: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
