@@ -14,19 +14,18 @@ class DailyHappyHourForm extends Component {
   
   render() {
     const daysArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-    const dayOptions = daysArray.map(day => {
+    const dayOptions = daysArray.map((day, index) => {
       return (
-        <option value={day}>{day}</option>
+        <option key={index} value={day}>{day}</option>
       )
     })
     const hoursArray = ['10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM', '6:00PM',
       '7:00PM', '8:00PM', '9:00PM', '10:00PM', '11:00PM', '12:00AM', '1:00AM', '2:00AM', '3:00AM', '4:00AM']
-    const hoursOptions = hoursArray.map(hour => {
+    const hoursOptions = hoursArray.map((hour, index) => {
       return (
-        <option value={hour}>{hour}</option>
+        <option key={index} value={hour}>{hour}</option>
       )
     })
-
 
     return (
       <tr>

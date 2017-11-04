@@ -51,7 +51,7 @@ h5 {
   display: block;
   color: #111214;
   /* padding-bottom: 16px; */
-  height: 156px;
+  height: 220px;
   overflow: hidden;
   position: relative;
 }
@@ -82,15 +82,16 @@ h5 {
   color: #808589;
 }
 
-.favorite-card {
+/* .favorite-card {
   background-color: #808589;
-}
+} */
 
 .header-section {
   background-color: #11121495;
   color: #dcd727;
   padding: 20px 0 30px 0;
   display: block;
+  text-shadow: 0 0 15px black;
   /* margin-bottom: 14px; */
 }
 
@@ -193,6 +194,7 @@ a {
 
 .form-header {
   width: 100%;
+  background-color: #dcd727;
 }
 
 /* td {
@@ -243,4 +245,5 @@ input {
 
 .happy-hour-btn {
   margin: 16px auto;
+  display: block;
 }

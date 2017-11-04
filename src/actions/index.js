@@ -48,7 +48,8 @@ export const toggleShowFavorites = (bool) => {
 
 export const toggleExtended = (location) => {
   return {
-    type: 'TOGGLE-EXTENDED-CARD'
+    type: 'TOGGLE-EXTENDED-CARD',
+    location
   }
 }
 

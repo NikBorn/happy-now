@@ -12,9 +12,11 @@ class LocationCard extends Component {
     super();
   }
 
-  componentDidReceiveProps( nextProps) {
-   this.props !== nextProps ? true : false
-  }
+  // componentWillUpdate(nextProps, nextState) {
+  //   console.log ('this: ', this.props.locationInfo)
+  //   console.log('next: ', nextProps.locationInfo)
+  //   this.props !== nextProps ? true : false;
+  // }
 
   render() {
     const locationInfo = this.props.locationInfo;
@@ -46,16 +48,12 @@ class LocationCard extends Component {
         <a href='' className='directions'>
           no menu listed
         </a>
-      </h5> ;
+      </h5>;
 
-    const cardExtStyle = locationInfo.isExtended ? 'location-card' : 'location-card-ext location-card' ;
+    const cardExtStyle = locationInfo.isExtended ? 'location-card-ext location-card' : 'location-card' ;
 
     return (
       <div className={cardExtStyle}
-        onClick={event => {
-          event.preventDefault();
-          this.props.toggleExtended(switchExtended(locationInfo));
-        }}
       >
         <div className={cardStyle}>
           <h4>{locationInfo.name}</h4>
@@ -79,22 +77,31 @@ class LocationCard extends Component {
           directions
           </a>
         </h5>
-        
-        
-        
+        {
+          locationInfo.isExtended === false &&
+          <button
+            className='show-more happy-hour-btn'
+            onClick={event => {
+              event.preventDefault();
+              this.props.toggleExtended(switchExtended(locationInfo));
+            }}
+          >Add Happy Hour!</button>
+        }
+
 
         <HappyHourForm />
       </div>
-  );
-};
-};
+    );
+  }
+}
 
 
 LocationCard.propTypes = {
   locationInfo: PropTypes.object,
   removeFavorite: PropTypes.func,
   addFavorite: PropTypes.func,
-  toggleFavorite: PropTypes.func
+  toggleFavorite: PropTypes.func,
+  toggleExtended: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
