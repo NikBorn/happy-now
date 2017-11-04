@@ -6,11 +6,16 @@ import PropTypes from 'prop-types';
 
 
 const LocationCard = (props) => {
+
   const locationInfo = props.locationInfo;
+
+  const locationDirections = `https://maps.google.com/?q=${locationInfo.location.lat},${locationInfo.location.lng}`
+
   const cardStyle = locationInfo.isFavorite ? 
     'favorite-card-header card-header' 
     : 
     'card-header';
+
   const favStyle = locationInfo.isFavorite ? 
     'favorite-button favorite-button-selected' 
     : 
@@ -34,6 +39,21 @@ const LocationCard = (props) => {
       <h5>{locationInfo.location.formattedAddress[1]}</h5>
       <h5>{locationInfo.rating} rating from {locationInfo.ratingSignals} reviews
       </h5>
+      {
+        locationInfo.menu &&
+      <h5>
+        <a href={locationInfo.menu.url}>
+        menu
+        </a>
+      </h5>
+      }
+      <h5>
+        <a href={locationDirections}
+          target="_blank">
+        directions
+        </a>
+      </h5>
+      
       
       
       <button className={favStyle}
