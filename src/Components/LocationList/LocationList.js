@@ -28,7 +28,7 @@ const  LocationList = (props) => {
 };
 
 LocationList.propTypes = {
-  locations: PropTypes.object,
+  locations: PropTypes.array,
   count: PropTypes.number
 };
 

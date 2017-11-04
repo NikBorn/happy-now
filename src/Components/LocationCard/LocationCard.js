@@ -1,26 +1,24 @@
 import React from 'react';
-import { toggleFavorite, removeFavorite, addFavorite } from '../../actions';
-import { switchFavorite } from '../../Utils/helper';
+import { toggleFavorite, removeFavorite, addFavorite, toggleExtended } from '../../actions';
+import { switchFavorite, switchExtended } from '../../Utils/helper.js';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import HappyHourForm from '../HappyHourForm/HappyHourForm.js';
 
 
 const LocationCard = (props) => {
 
   const locationInfo = props.locationInfo;
-
-  const locationDirections = `https://maps.google.com/?q=${locationInfo.location.lat},${locationInfo.location.lng}`
-
+  const locationDirections = `https://maps.google.com/?q=
+    ${locationInfo.location.lat},${locationInfo.location.lng}`;
   const cardStyle = locationInfo.isFavorite ? 
     'favorite-card-header card-header' 
     : 
     'card-header';
-
   const favStyle = locationInfo.isFavorite ? 
     'favorite-button favorite-button-selected' 
     : 
     'favorite-button';
-
   const handleClick = (location) => {
     if (location.isFavorite) {
       props.removeFavorite(location);
@@ -28,27 +26,46 @@ const LocationCard = (props) => {
       props.addFavorite(location);
     }
   };
+  const locationMenu = locationInfo.menu ? 
+    <h5 className='menu'>
+      <a href={locationInfo.menu.url} className='directions'>
+      menu
+      </a>
+    </h5> 
+    : 
+    <h5 className='menu'>
+      <a href='' className='directions'>
+        no menu listed
+      </a>
+    </h5> ;
+
+  const cardExtStyle = locationInfo.isExtended ? 'location-card-ext location-card' : 'location-card';
 
   return (
-    <div className='location-card'>
+    <div className={cardExtStyle}
+      onClick={event => {
+        event.preventDefault();
+        props.toggleExtended(switchExtended(locationInfo));
+      }}
+    >
       <div className={cardStyle}>
         <h4>{locationInfo.name}</h4>
+        <button className={favStyle}
+          onClick={(event) => {
+            event.preventDefault();
+            handleClick(locationInfo);
+            props.toggleFavorite(switchFavorite(locationInfo));
+          }}>{locationInfo.isFavorite ? 'Unfav' : 'Fav'}</button>
       </div>
-      <h5>{locationInfo.contact.formattedPhone}</h5>
+      <h5>{locationInfo.contact.formattedPhone || 'No Phone Number Listed'}</h5>
       <h5>{locationInfo.location.formattedAddress[0]}</h5>
       <h5>{locationInfo.location.formattedAddress[1]}</h5>
       <h5>{locationInfo.rating} rating from {locationInfo.ratingSignals} reviews
       </h5>
-      {
-        locationInfo.menu &&
-      <h5>
-        <a href={locationInfo.menu.url}>
-        menu
-        </a>
-      </h5>
-      }
-      <h5>
+      {locationMenu}
+      <h5 className='directions'>
         <a href={locationDirections}
+          className='directions'
           target="_blank">
         directions
         </a>
@@ -56,12 +73,8 @@ const LocationCard = (props) => {
       
       
       
-      <button className={favStyle}
-        onClick={(event) => {
-          event.preventDefault();
-          handleClick(locationInfo);
-          props.toggleFavorite(switchFavorite(locationInfo));
-        }}>{locationInfo.isFavorite ? 'Unfav' : 'Fav' }</button>
+
+      <HappyHourForm />
     </div>
   );
 };
@@ -91,6 +104,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     removeFavorite: (location) => {
       dispatch(removeFavorite(location));
+    },
+    toggleExtended: (location) => {
+      dispatch(toggleExtended(location));
     }
   };
 };
