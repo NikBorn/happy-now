@@ -39,3 +39,10 @@ export const removeFavorite = (location) => {
   };
 };
 
+export const toggleShowFavorites = (bool) => {
+  return {
+    type: 'TOGGLE_SHOW_FAVORITES',
+    bool
+  }
+}
+

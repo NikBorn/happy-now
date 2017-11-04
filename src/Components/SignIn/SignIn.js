@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { auth, provider } from '../../fire';
 import { connect } from 'react-redux';
 import { setActiveuser } from '../../actions/index.js';
-
+import PropTypes from 'prop-types';
 
 class SignIn extends Component {
   constructor() {
@@ -31,13 +31,16 @@ class SignIn extends Component {
   }
 
   render() {
-    const userName = this.props.activeUser ? this.props.activeUser.displayName : '';
+    const userName = this.props.activeUser ? 
+      this.props.activeUser.displayName : '';
     return (
       <div className="login-logout" >
         {this.props.activeUser ?
-          <button className="login-logout-button" onClick={this.logout}>Log Out, {userName}</button>
+          <button className="login-logout-button" 
+            onClick={this.logout}>Log Out, {userName}</button>
           :
-          <button className="login-logout-button" onClick={this.login}>Log In</button>
+          <button className="login-logout-button" 
+            onClick={this.login}>Log In</button>
         }
       </div>
     );
@@ -58,6 +61,11 @@ const mapStateToProps = (state) => {
     locations: state.locations,
     activeUser: state.activeUser
   };
+};
+
+SignIn.propTypes = {
+  setActiveuser: PropTypes.func,
+  activeUser: PropTypes.object
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

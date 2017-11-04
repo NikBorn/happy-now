@@ -1,9 +1,10 @@
 import React from 'react';
 import LocationCard from '../LocationCard/LocationCard.js';
+import PropTypes from 'prop-types';
+
 
 
 const  LocationList = (props) => {
-  console.log('count: ', props.count)
 
   const listObjs = props.locations.map(locationInfo => {
     return <LocationCard 
@@ -17,7 +18,7 @@ const  LocationList = (props) => {
     } else {
       return null;
     }
-  })
+  });
   
   return (
     <div className='location-list'>
@@ -26,6 +27,10 @@ const  LocationList = (props) => {
   );
 };
 
+LocationList.propTypes = {
+  locations: PropTypes.object,
+  count: PropTypes.number
+};
 
 
 export default LocationList;
