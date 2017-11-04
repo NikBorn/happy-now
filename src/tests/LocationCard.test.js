@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { MockLocation } from '../Utils/mockData.js';
 import configureStore from 'redux-mock-store';
 
-configure({ adapter: new Adapter() })
+configure({ adapter: new Adapter() });
 
 describe('LocationCard', () => {
   const mockStore = configureStore();
@@ -15,12 +15,15 @@ describe('LocationCard', () => {
     activeUser: null,
     count: 10,
     favorites: []
-  }
+  };
   const store = mockStore(initialState);
-  const locationInfo = MockLocation
-  const wrapper = shallow(<LocationCard store={store} key={locationInfo.id} locationInfo={locationInfo} />)
+  const locationInfo = MockLocation;
+  const wrapper = shallow(
+    <LocationCard store={store} 
+      key={locationInfo.id} 
+      locationInfo={locationInfo} />);
 
   it('should always match the Snapshot', () => {
     expect(wrapper).toMatchSnapshot();
-  })
-})
+  });
+});
