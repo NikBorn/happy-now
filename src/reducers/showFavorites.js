@@ -1,5 +1,4 @@
 const showFavorites = (state = false, action) => {
-  console.log(action)
   switch (action.type) {
   case 'TOGGLE_SHOW_FAVORITES':
     return action.bool;

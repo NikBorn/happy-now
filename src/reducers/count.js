@@ -7,6 +7,6 @@ const count = (state=10, action ) => {
   default:
     return state;
   }
-}
+};
 
 export default count;

@@ -5,7 +5,7 @@ const favorites = (state = [], action) => {
   default:
     return state;
   case 'REMOVE_FAVORITE':
-    return state.filter(location => location.id !== action.location.id)
+    return state.filter(location => location.id !== action.location.id);
   }
 };
 
