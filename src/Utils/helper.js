@@ -11,3 +11,8 @@ export const updateUser = (userId, favorites) => {
     favorites: favorites
   });
 };
+
+export const switchExtended = (locationInfo) => {
+  locationInfo.isExtended = !locationInfo.isExtended;
+  return locationInfo;
+};

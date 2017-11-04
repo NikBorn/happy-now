@@ -1,77 +1,107 @@
-import React from 'react';
-import { toggleFavorite, removeFavorite, addFavorite } from '../../actions';
-import { switchFavorite } from '../../Utils/helper';
+import React, { Component } from 'react';
+import { toggleFavorite, removeFavorite, addFavorite, toggleExtended } from '../../actions';
+import { switchFavorite, switchExtended } from '../../Utils/helper.js';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import HappyHourForm from '../HappyHourForm/HappyHourForm.js';
 
 
-const LocationCard = (props) => {
+class LocationCard extends Component {
 
-  const locationInfo = props.locationInfo;
+  constructor() {
+    super();
+  }
 
-  const locationDirections = `https://maps.google.com/?q=${locationInfo.location.lat},${locationInfo.location.lng}`
+  // componentWillUpdate(nextProps, nextState) {
+  //   console.log ('this: ', this.props.locationInfo)
+  //   console.log('next: ', nextProps.locationInfo)
+  //   this.props !== nextProps ? true : false;
+  // }
 
-  const cardStyle = locationInfo.isFavorite ? 
-    'favorite-card-header card-header' 
-    : 
-    'card-header';
-
-  const favStyle = locationInfo.isFavorite ? 
-    'favorite-button favorite-button-selected' 
-    : 
-    'favorite-button';
-
-  const handleClick = (location) => {
-    if (location.isFavorite) {
-      props.removeFavorite(location);
-    } else {
-      props.addFavorite(location);
-    }
-  };
-
-  return (
-    <div className='location-card'>
-      <div className={cardStyle}>
-        <h4>{locationInfo.name}</h4>
-      </div>
-      <h5>{locationInfo.contact.formattedPhone}</h5>
-      <h5>{locationInfo.location.formattedAddress[0]}</h5>
-      <h5>{locationInfo.location.formattedAddress[1]}</h5>
-      <h5>{locationInfo.rating} rating from {locationInfo.ratingSignals} reviews
-      </h5>
-      {
-        locationInfo.menu &&
-      <h5>
-        <a href={locationInfo.menu.url}>
+  render() {
+    const locationInfo = this.props.locationInfo;
+    const locationDirections = `https://maps.google.com/?q=
+      ${locationInfo.location.lat},${locationInfo.location.lng}`;
+    const cardStyle = locationInfo.isFavorite ? 
+      'favorite-card-header card-header' 
+      : 
+      'card-header';
+    const favStyle = locationInfo.isFavorite ? 
+      'favorite-button favorite-button-selected' 
+      : 
+      'favorite-button';
+    const handleClick = (location) => {
+      if (location.isFavorite) {
+        this.props.removeFavorite(location);
+      } else {
+        this.props.addFavorite(location);
+      }
+    };
+    const locationMenu = locationInfo.menu ? 
+      <h5 className='menu'>
+        <a href={locationInfo.menu.url} className='directions'>
         menu
         </a>
-      </h5>
-      }
-      <h5>
-        <a href={locationDirections}
-          target="_blank">
-        directions
+      </h5> 
+      : 
+      <h5 className='menu'>
+        <a href='' className='directions'>
+          no menu listed
         </a>
-      </h5>
-      
-      
-      
-      <button className={favStyle}
-        onClick={(event) => {
-          event.preventDefault();
-          handleClick(locationInfo);
-          props.toggleFavorite(switchFavorite(locationInfo));
-        }}>{locationInfo.isFavorite ? 'Unfav' : 'Fav' }</button>
-    </div>
-  );
-};
+      </h5>;
+
+    const cardExtStyle = locationInfo.isExtended ? 'location-card-ext location-card' : 'location-card' ;
+
+    return (
+      <div className={cardExtStyle}
+      >
+        <div className={cardStyle}>
+          <h4>{locationInfo.name}</h4>
+          <button className={favStyle}
+            onClick={(event) => {
+              event.preventDefault();
+              handleClick(locationInfo);
+              this.props.toggleFavorite(switchFavorite(locationInfo));
+            }}>{locationInfo.isFavorite ? 'Unfav' : 'Fav'}</button>
+        </div>
+        <h5>{locationInfo.contact.formattedPhone || 'No Phone Number Listed'}</h5>
+        <h5>{locationInfo.location.formattedAddress[0]}</h5>
+        <h5>{locationInfo.location.formattedAddress[1]}</h5>
+        <h5>{locationInfo.rating} rating from {locationInfo.ratingSignals} reviews
+        </h5>
+        {locationMenu}
+        <h5 className='directions'>
+          <a href={locationDirections}
+            className='directions'
+            target="_blank">
+          directions
+          </a>
+        </h5>
+        {
+          locationInfo.isExtended === false &&
+          <button
+            className='show-more happy-hour-btn'
+            onClick={event => {
+              event.preventDefault();
+              this.props.toggleExtended(switchExtended(locationInfo));
+            }}
+          >Add Happy Hour!</button>
+        }
+
+
+        <HappyHourForm />
+      </div>
+    );
+  }
+}
 
 
 LocationCard.propTypes = {
   locationInfo: PropTypes.object,
   removeFavorite: PropTypes.func,
   addFavorite: PropTypes.func,
-  toggleFavorite: PropTypes.func
+  toggleFavorite: PropTypes.func,
+  toggleExtended: PropTypes.func
 };
 
 const mapStateToProps = (state) => {
@@ -91,8 +121,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     removeFavorite: (location) => {
       dispatch(removeFavorite(location));
+    },
+    toggleExtended: (location) => {
+      dispatch(toggleExtended(location));
     }
   };
+
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationCard);

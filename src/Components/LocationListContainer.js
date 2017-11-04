@@ -7,10 +7,13 @@ import LoadingScreen from './LoadingScreen/LoadingScreen';
 import PropTypes from 'prop-types';
 
 class LocationListContainer extends Component {
+  constructor() {
+    super();
+  }
 
-  getUserLocation(callback) {
+  getUserLocation(cback) {
     navigator.geolocation.getCurrentPosition(function (location) {
-      callback(location.coords.latitude + ',' + location.coords.longitude);
+      cback(location.coords.latitude + ',' + location.coords.longitude);
     });
   }
 
@@ -36,7 +39,11 @@ class LocationListContainer extends Component {
         .then(response => response.response.groups[0].items)
         .then(res => {
           return res.map(place=> {
-            return Object.assign({isFavorite: false}, place.venue);
+            return Object.assign({
+              isExtended: false,
+              isFavorite: false, 
+              contact: {formattedPhone: 'None Listed'}
+            }, place.venue);
           });  
         })
         .then(resp => this.props.setLocations(resp));
@@ -45,6 +52,7 @@ class LocationListContainer extends Component {
 
   componentDidMount() {
     this.getLocations('Bars');
+    // this.setUserLocation();
   }
 
   render() {

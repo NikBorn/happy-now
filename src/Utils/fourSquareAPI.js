@@ -14,18 +14,18 @@ const getLocations = (query) => {
   return getUserLocation((latlong) => {
 
     const params = {
-      client_id: '20SGZBSFIJ2PAEM2E53DTZNVFZ5K1E4GHCNBKTXM14JVDKBD',
-      client_secret: 'C10LMFZC53BRQNH3CJ50SBWJLVWIPTQI4WYPKMPGYE0KZAXB',
+      'client_id': '20SGZBSFIJ2PAEM2E53DTZNVFZ5K1E4GHCNBKTXM14JVDKBD',
+      'client_secret': 'C10LMFZC53BRQNH3CJ50SBWJLVWIPTQI4WYPKMPGYE0KZAXB',
       limit: 100,
       query: query,
-      v: '20130619',
+      'v': '20130619',
       ll: latlong
     };
 
     return fetch(venuesEndpoint + new URLSearchParams(params), {
       method: 'GET'
     })
-      .then(response => response.json())
+      .then(response => response.json());
   });
 };
 
