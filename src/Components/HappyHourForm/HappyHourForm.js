@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import DailyHappyHourForm from '../DailyHappyHourForm/DailyHappyHourForm.js';
+import fire from '../../fire.js';
+
 
 class HappyHourForm extends Component {
   constructor() {
@@ -17,27 +19,26 @@ class HappyHourForm extends Component {
   }
 
   handleChange(day, name, input) {
-    console.log(day, name, input)
     let currentState = [...this.state[day]]
     if (name === 'startingHours') {
       currentState.splice(0, 1, input)
-      // this.setState({ [day]: currentState })
-      
     }
     if (name === 'endingHours') {
       currentState.splice(1, 1, input)
-      // this.setState({ [day]: currentState })
     }
     if (name === 'special') {
       currentState.splice(2, 1, input)
     }
     this.setState({ [day]: currentState })
+  }
 
-    // this.setState({
-    //   [day]: {
-    //     [name]: input
-    //   }
-    // })
+  addHappyHourToFirebase() {
+    const itemsRef = fire.database().ref('happy-hours');
+    const item = {
+      location: this.props.locationInfo.id,
+      happyHours: this.state
+    };
+    itemsRef.push(item);
   }
 
   render() {
@@ -70,7 +71,7 @@ class HappyHourForm extends Component {
         <button className='show-more happy-hour-btn'
           onClick={(event) => {
             event.preventDefault()
-            console.log(this.state)
+            this.addHappyHourToFirebase()
           }}
         >Submit</button>
       </div>
