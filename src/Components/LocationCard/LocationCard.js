@@ -12,24 +12,22 @@ class LocationCard extends Component {
     super();
   }
 
-  // componentWillUpdate(nextProps, nextState) {
-  //   console.log ('this: ', this.props.locationInfo)
-  //   console.log('next: ', nextProps.locationInfo)
-  //   this.props !== nextProps ? true : false;
-  // }
-
   render() {
     const locationInfo = this.props.locationInfo;
+    
     const locationDirections = `https://maps.google.com/?q=
       ${locationInfo.location.lat},${locationInfo.location.lng}`;
+
     const cardStyle = locationInfo.isFavorite ? 
       'favorite-card-header card-header' 
       : 
       'card-header';
+
     const favStyle = locationInfo.isFavorite ? 
       'favorite-button favorite-button-selected' 
       : 
       'favorite-button';
+
     const handleClick = (location) => {
       if (location.isFavorite) {
         this.props.removeFavorite(location);
@@ -37,6 +35,7 @@ class LocationCard extends Component {
         this.props.addFavorite(location);
       }
     };
+
     const locationMenu = locationInfo.menu ? 
       <h5 className='menu'>
         <a href={locationInfo.menu.url} className='directions'>
@@ -87,8 +86,6 @@ class LocationCard extends Component {
             }}
           >Add Happy Hour!</button>
         }
-
-
         <HappyHourForm />
       </div>
     );

@@ -11,6 +11,9 @@ class DailyHappyHourForm extends Component {
     };
   }
 
+  // handleChange(day, string, input) {
+  //   this.props.handleChange()
+  // }
   
   render() {
     const daysArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
@@ -35,19 +38,26 @@ class DailyHappyHourForm extends Component {
           </select>
         </td>
         <td>
-          <select name="start">
+          <select name='startingHours'
+            onChange={(event)=> {
+              this.props.handleChange(this.props.day, 'startingHours', event.target.value)
+            }}>
             {hoursOptions}
           </select>
         </td>
         <td>
-          <select name="end">
+          <select name='endingHours'
+            onChange={(event)=> {
+              this.props.handleChange(this.props.day, 'endingHours', event.target.value)
+            }}
+          >
             {hoursOptions}
           </select>
         </td>
         <td>
-          <input
+          <input name='special'
             onChange={(event) => {
-              this.setState({specials: event.target.value});
+              this.props.handleChange(this.props.day, 'special', event.target.value)
             }} />
         </td>
       </tr>
