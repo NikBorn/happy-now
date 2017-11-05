@@ -18,25 +18,20 @@ class HappyHourForm extends Component {
 
   handleChange(day, name, input) {
     console.log(day, name, input)
+    let currentState = [...this.state[day]]
     if (name === 'startingHours') {
-      let currentState = [...this.state[day]]
       currentState.splice(0, 1, input)
-      this.setState({ [day]: currentState })
-      // console.log(currentState)
+      // this.setState({ [day]: currentState })
       
     }
     if (name === 'endingHours') {
-      let currentState = [...this.state[day]]
-      // console.log(currentState)
       currentState.splice(1, 1, input)
-      this.setState({ [day]: currentState })
+      // this.setState({ [day]: currentState })
     }
     if (name === 'special') {
-      let currentState = [...this.state[day]]
       currentState.splice(2, 1, input)
-      this.setState({ [day]: currentState })
-      // console.log(currentState)
     }
+    this.setState({ [day]: currentState })
 
     // this.setState({
     //   [day]: {
