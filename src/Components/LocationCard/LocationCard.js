@@ -62,6 +62,16 @@ const LocationCard = (props) => {
     itemsRef.push(item);
   };
 
+  const checkUser = (locationInfo) => {
+    if (!props.activeUser) {
+      alert('You must sign in to add favorites');
+    } else {
+      handleClick(locationInfo);
+      addFavToFirebase();
+      props.toggleFavorite(switchFavorite(locationInfo));
+    }
+  };
+
   return (
     <div className={cardExtStyle}
     >
@@ -70,9 +80,7 @@ const LocationCard = (props) => {
         <button className={favStyle}
           onClick={(event) => {
             event.preventDefault();
-            handleClick(locationInfo);
-            addFavToFirebase();
-            props.toggleFavorite(switchFavorite(locationInfo));
+            checkUser(locationInfo);
           }}>{locationInfo.isFavorite ? 'Unfav' : 'Fav'}</button>
       </div>
       <h5>{locationInfo.contact.formattedPhone || 'No Phone Number Listed'}</h5>
@@ -110,7 +118,8 @@ LocationCard.propTypes = {
   removeFavorite: PropTypes.func,
   addFavorite: PropTypes.func,
   toggleFavorite: PropTypes.func,
-  toggleExtended: PropTypes.func
+  toggleExtended: PropTypes.func,
+  activeUser: PropTypes.object
 };
 
 const mapStateToProps = (state) => {
@@ -136,7 +145,6 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(toggleExtended(location));
     }
   };
-
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LocationCard);
