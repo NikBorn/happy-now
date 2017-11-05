@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 import HappyHourForm from '../HappyHourForm/HappyHourForm.js';
 import fire from '../../fire.js';
 
-
 const LocationCard = (props) => {
 
   const locationInfo = props.locationInfo;
@@ -61,7 +60,7 @@ const LocationCard = (props) => {
       location: props.locationInfo
     };
     itemsRef.push(item);
-  }
+  };
 
   return (
     <div className={cardExtStyle}

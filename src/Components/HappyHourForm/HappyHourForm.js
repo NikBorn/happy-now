@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import DailyHappyHourForm from '../DailyHappyHourForm/DailyHappyHourForm.js';
 import fire from '../../fire.js';
+import { switchExtended } from '../../Utils/helper.js';
+import { toggleExtended } from '../../actions';
+import { connect } from 'react-redux';
+
+
 
 
 class HappyHourForm extends Component {
@@ -35,7 +40,8 @@ class HappyHourForm extends Component {
   addHappyHourToFirebase() {
     const itemsRef = fire.database().ref('happy-hours');
     const item = {
-      location: this.props.locationInfo.id,
+      name: this.props.locationInfo.name,
+      locationId: this.props.locationInfo.id,
       happyHours: this.state
     };
     itemsRef.push(item);
@@ -43,10 +49,20 @@ class HappyHourForm extends Component {
 
   render() {
     const dailyForm = DailyHappyHourForm;
-    const daysArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    const daysArray = 
+    ['Monday', 
+      'Tuesday', 
+      'Wednesday', 
+      'Thursday', 
+      'Friday', 
+      'Saturday', 
+      'Sunday'];
     const dayOptions = daysArray.map((day, index) => {
       return (
-        <DailyHappyHourForm key={index} day={day} handleChange={this.handleChange} />
+        <DailyHappyHourForm 
+          key={index} 
+          day={day} 
+          handleChange={this.handleChange} />
       );
     });
     return (
@@ -72,6 +88,8 @@ class HappyHourForm extends Component {
           onClick={(event) => {
             event.preventDefault()
             this.addHappyHourToFirebase()
+            this.props.toggleExtended(switchExtended(this.props.locationInfo));
+
           }}
         >Submit</button>
       </div>
@@ -79,4 +97,13 @@ class HappyHourForm extends Component {
   }
 }
 
-export default HappyHourForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    toggleExtended: (location) => {
+      dispatch(toggleExtended(location));
+    }
+  };
+
+};
+
+export default connect(null, mapDispatchToProps)(HappyHourForm);
