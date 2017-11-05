@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import LocationList from './LocationList/LocationList';
-import { setLocations } from '../actions/index';
+import LocationList from '../LocationList/LocationList';
+import { setLocations } from '../../actions/index';
 import { connect } from 'react-redux';
-import ShowMoreButton from './ShowMoreButton/ShowMoreButton.js';
-import LoadingScreen from './LoadingScreen/LoadingScreen';
+import ShowMoreButton from '../ShowMoreButton/ShowMoreButton.js';
+import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import PropTypes from 'prop-types';
 
 class LocationListContainer extends Component {
