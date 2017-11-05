@@ -52,7 +52,6 @@ class LocationListContainer extends Component {
 
   componentDidMount() {
     this.getLocations('Bars');
-    // this.setUserLocation();
   }
 
   render() {

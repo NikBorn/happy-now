@@ -10,10 +10,6 @@ class DailyHappyHourForm extends Component {
       special: ''
     };
   }
-
-  // handleChange(day, string, input) {
-  //   this.props.handleChange()
-  // }
   
   render() {
     const daysArray = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
