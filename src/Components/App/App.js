@@ -5,40 +5,29 @@ import { setLocations } from '../../actions/index.js';
 import { connect } from 'react-redux';
 import LocationListContainer from 
   '../LocationListContainer/LocationListContainer.js';
+import { Route } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      venues: []
-    };
-  }
+const App = () => {
 
-  render() {
-    return (
-      <div className="App">
-        <Header />
-        <div className='body'>
-          <LocationListContainer />
-        </div>  
-      </div>
-    );
-  }
+  return (
+    <div className="App">
+      <Route path='/'
+        render={() =>
+          <Header />}
+      />
+      <Route exact path='/'
+        render={() =>
+          <div className='body'>
+            <LocationListContainer />
+          </div>  
+        }
+      />
+    </div>
+  );
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    setLocations: (locations) => {
-      dispatch(setLocations(locations));
-    }
-  };
-};
 
-const mapStateToProps = (state) => {
-  return {
-    locations: state.locations
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(App);
+// export default App;
