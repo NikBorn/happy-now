@@ -1,9 +1,9 @@
 import { setLocations } from '../actions/index.js';
 import { connect } from 'react-redux';
 
-const getUserLocation = (callback) => {
+const getUserLocation = (cback) => {
   navigator.geolocation.getCurrentPosition(function (location) {
-    callback(location.coords.latitude + ',' + location.coords.longitude);
+    cback(location.coords.latitude + ',' + location.coords.longitude);
   });
 };
 

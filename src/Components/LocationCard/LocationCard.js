@@ -28,7 +28,8 @@ const LocationCard = (props) => {
       alert('You must sign in to add favorites');
     } else {
       handleClick(locationInfo, props);
-      addFavToFirebase(props.activeUser.uid, props.activeUser.displayName, props.locationInfo);
+      addFavToFirebase(
+        props.activeUser.uid, props.activeUser.displayName, props.locationInfo);
       props.toggleFavorite(switchFavorite(locationInfo));
     }
   };
