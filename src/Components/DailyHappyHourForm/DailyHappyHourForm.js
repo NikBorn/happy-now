@@ -14,20 +14,6 @@ class DailyHappyHourForm extends Component {
   }
   
   render() {
-    const daysArray = 
-      ['Monday', 
-        'Tuesday', 
-        'Wednesday', 
-        'Thursday', 
-        'Friday', 
-        'Saturday', 
-        'Sunday'];
-
-    const dayOptions = daysArray.map((day, index) => {
-      return (
-        <option key={index} value={day}>{day}</option>
-      );
-    });
 
     const hoursArray = 
     ['10:00AM', '11:00AM', '12:00PM', '1:00PM', 
@@ -41,6 +27,7 @@ class DailyHappyHourForm extends Component {
     });
 
     return (
+      
       <tr>
         <td>
           <select>
@@ -74,6 +61,7 @@ class DailyHappyHourForm extends Component {
             }} />
         </td>
       </tr>
+
     );
   }
 }

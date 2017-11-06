@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import Header from '../Header/Header.js';
-import { setLocations } from '../../actions/index.js';
-import { connect } from 'react-redux';
 import LocationListContainer from 
   '../LocationListContainer/LocationListContainer.js';
 import { Route } from 'react-router';
@@ -16,8 +14,8 @@ const App = () => {
     <div className="App">
       <Route path='/'
         render={() =>[
-          <Header />,
-          <NavBar />
+          <Header key={0} />,
+          <NavBar key={1} />
         ]
         }
       />

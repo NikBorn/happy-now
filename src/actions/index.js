@@ -48,8 +48,15 @@ export const toggleShowFavorites = (bool) => {
 
 export const toggleExtended = (location) => {
   return {
-    type: 'TOGGLE-EXTENDED-CARD',
+    type: 'TOGGLE_EXTENDED_CARD',
     location
+  };
+};
+
+export const sendHappyHoursToState = (happyHours) => {
+  return {
+    type: 'SET_HAPPY_HOURS',
+    happyHours
   };
 };
 

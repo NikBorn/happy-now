@@ -10,3 +10,4 @@ export const addFavToFirebase = (uid, displayName, locationInfo) => {
   };
   itemsRef.push(item);
 };
+
