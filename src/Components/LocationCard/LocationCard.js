@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { toggleFavorite, 
   removeFavorite, 
   addFavorite, 
@@ -9,7 +9,6 @@ import { switchFavorite,
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import HappyHourForm from '../HappyHourForm/HappyHourForm.js';
-import fire from '../../fire.js';
 import { cardStyle, 
   favStyle, 
   locationMenu, 

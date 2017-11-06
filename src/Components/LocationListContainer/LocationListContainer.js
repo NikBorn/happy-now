@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import LocationList from '../LocationList/LocationList';
-import { setLocations } from '../../actions/index';
+import { setLocations, sendHappyHoursToState } from '../../actions/index';
 import { connect } from 'react-redux';
-import ShowMoreButton from '../ShowMoreButton/ShowMoreButton.js';
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import PropTypes from 'prop-types';
+import fire from '../../fire.js';
+
 
 class LocationListContainer extends Component {
-  constructor() {
-    super();
+
+  fetchhappyhours() {
+    const happyHoursFromDB = fire.database().ref('happy-hours');
+
+    happyHoursFromDB.on('value', snapshot => {
+      const happyHours = Object.entries(snapshot.val());
+      sendHappyHoursToState(happyHours);
+    });
   }
 
   getUserLocation(cback) {
@@ -18,11 +25,8 @@ class LocationListContainer extends Component {
   }
 
   getLocations(query) {
-
     const venuesEndpoint = 'https://api.foursquare.com/v2/venues/explore?';
-
     return this.getUserLocation((latlong) => {
-
       const params = {
         'client_id': '20SGZBSFIJ2PAEM2E53DTZNVFZ5K1E4GHCNBKTXM14JVDKBD',
         'client_secret': 'C10LMFZC53BRQNH3CJ50SBWJLVWIPTQI4WYPKMPGYE0KZAXB',
@@ -31,7 +35,6 @@ class LocationListContainer extends Component {
         'v': '20130619',
         ll: latlong
       };
-
       return fetch(venuesEndpoint + new URLSearchParams(params), {
         method: 'GET'
       })
@@ -52,6 +55,7 @@ class LocationListContainer extends Component {
 
   componentDidMount() {
     this.getLocations('Bars');
+    this.fetchhappyhours();
   }
 
   render() {
@@ -74,6 +78,9 @@ const mapDTP = (dispatch) => {
   return {
     setLocations: (locations) => {
       dispatch(setLocations(locations));
+    },
+    sendHappyHoursToState: (happyHours) => {
+      dispatch(sendHappyHoursToState(happyHours));
     }
   };
 };
@@ -83,7 +90,8 @@ const mapSTP = (state) => {
     locations: state.locations,
     count: state.count,
     showFavorites: state.showFavorites,
-    favorites: state.favorites
+    favorites: state.favorites,
+    happHours: state.happyHours
   };
 };
 

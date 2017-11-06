@@ -5,6 +5,8 @@ import activeUser from './activeUser.js';
 import count from './count.js';
 import favorites from './favorites.js';
 import showFavorites from './showFavorites.js';
+import happyHours from './happyHours.js';
+
 
 
 
@@ -17,6 +19,7 @@ export default combineReducers({
   activeUser,
   count,
   favorites,
-  showFavorites
+  showFavorites,
+  happyHours
 });
 

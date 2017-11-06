@@ -47,7 +47,6 @@ class HappyHourForm extends Component {
   }
 
   render() {
-    const dailyForm = DailyHappyHourForm;
     const daysArray = 
     ['Monday', 
       'Tuesday', 
@@ -67,28 +66,29 @@ class HappyHourForm extends Component {
     return (
       <div className='happy-hour-form'>
         <table>
-          <tr className='form-header'>
-            <th className='add-form-header'>
+          <tbody>
+            <tr className='form-header'>
+              <th className='add-form-header'>
               Day
-            </th>
-            <th>
+              </th>
+              <th>
               Starts
-            </th>
-            <th>
+              </th>
+              <th>
               Ends
-            </th>
-            <th>
+              </th>
+              <th>
               Special
-            </th>
-          </tr>       
-          {dayOptions }
+              </th>
+            </tr>       
+            {dayOptions }
+          </tbody>     
         </table>
         <button className='show-more happy-hour-btn'
           onClick={(event) => {
             event.preventDefault();
             this.addHappyHourToFirebase();
             this.props.toggleExtended(switchExtended(this.props.locationInfo));
-
           }}
         >Submit</button>
         <button className='cancel-add-hh'
@@ -105,7 +105,6 @@ HappyHourForm.propTypes = {
   locationInfo: PropTypes.object,
   toggleExtended: PropTypes.func
 };
-
 
 const mapDispatchToProps = (dispatch) => {
   return {
