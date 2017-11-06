@@ -55,7 +55,6 @@ class LocationListContainer extends Component {
   }
 
   render() {
-
     const listToShow = this.props.showFavorites === true ? 
       this.props.favorites : this.props.locations;
 
@@ -66,7 +65,6 @@ class LocationListContainer extends Component {
     return (
       <div className='location-list-container' >
         { showList }
-        <ShowMoreButton />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import LocationCard from '../LocationCard/LocationCard.js';
 import PropTypes from 'prop-types';
+import ShowMoreButton from '../ShowMoreButton/ShowMoreButton.js';
 
 
 
@@ -23,6 +24,7 @@ const  LocationList = (props) => {
   return (
     <div className='location-list'>
       {displayLocationCards }
+      <ShowMoreButton />
     </div>
   );
 };

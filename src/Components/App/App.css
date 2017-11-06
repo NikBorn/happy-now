@@ -97,7 +97,7 @@ h5 {
 
 .location-list,
 .loading-screen {
-  margin-top: 14px;
+  /* margin-top: 6px; */
   display: inline-block;
   border: 2px solid #808589;
   width: 420px;
@@ -117,7 +117,7 @@ h5 {
   display: block;
   float: left;
   margin-left: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 
 .login-logout-button,
@@ -274,4 +274,37 @@ input {
   display: flex;
   justify-content: space-around;
   /* width: 200px; */
+}
+
+ul {
+  list-style-type: none;
+  margin: 0 0 22px 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #111214;
+  display: flex;
+  justify-content: space-between;
+  align-items: middle;
+  width: 100%;
+}
+
+li {
+  display: inline-block;
+  width: 33%;
+}
+
+li a {
+  display: block;
+  color: #f1f2f3;
+  text-align: center;
+  padding: 6px 16px;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
+
+li a:hover {
+  background-color: #dcd727;
+  color: #111214;
 }
