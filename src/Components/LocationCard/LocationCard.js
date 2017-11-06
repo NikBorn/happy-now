@@ -3,11 +3,18 @@ import { toggleFavorite,
   removeFavorite, 
   addFavorite, 
   toggleExtended } from '../../actions';
-import { switchFavorite, switchExtended } from '../../Utils/helper.js';
+import { switchFavorite, 
+  switchExtended, 
+  handleClick } from '../../Utils/helper.js';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import HappyHourForm from '../HappyHourForm/HappyHourForm.js';
 import fire from '../../fire.js';
+import { cardStyle, 
+  favStyle, 
+  locationMenu, 
+  cardExtStyle } from '../../Utils/styles.js';
+import { addFavToFirebase } from '../../Utils/firebaseHelper.js';
 
 const LocationCard = (props) => {
 
@@ -16,68 +23,22 @@ const LocationCard = (props) => {
   const locationDirections = `https://maps.google.com/?q=
     ${locationInfo.location.lat},${locationInfo.location.lng}`;
 
-  const cardStyle = locationInfo.isFavorite ? 
-    'favorite-card-header card-header' 
-    : 
-    'card-header';
-
-  const favStyle = locationInfo.isFavorite ? 
-    'favorite-button favorite-button-selected' 
-    : 
-    'favorite-button';
-
-  const handleClick = (location) => {
-    if (location.isFavorite) {
-      props.removeFavorite(location);
-    } else {
-      props.addFavorite(location);
-    }
-  };
-
-  const locationMenu = locationInfo.menu ? 
-    <h5 className='menu'>
-      <a href={locationInfo.menu.url} className='directions'>
-      menu
-      </a>
-    </h5> 
-    : 
-    <h5 className='menu'>
-      <a href='' className='directions'>
-        no menu listed
-      </a>
-    </h5>;
-
-  const cardExtStyle = locationInfo.isExtended ? 
-    'location-card-ext location-card' 
-    : 
-    'location-card';
-
-  const addFavToFirebase = () => {
-    const itemsRef = fire.database().ref('favorites');
-    const item = {
-      userId: props.activeUser.uid,
-      userName: props.activeUser.displayName,
-      location: props.locationInfo
-    };
-    itemsRef.push(item);
-  };
-
   const checkUser = (locationInfo) => {
     if (!props.activeUser) {
       alert('You must sign in to add favorites');
     } else {
-      handleClick(locationInfo);
-      addFavToFirebase();
+      handleClick(locationInfo, props);
+      addFavToFirebase(props.activeUser.uid, props.activeUser.displayName, props.locationInfo);
       props.toggleFavorite(switchFavorite(locationInfo));
     }
   };
 
   return (
-    <div className={cardExtStyle}
+    <div className={cardExtStyle(locationInfo.isExtended)}
     >
-      <div className={cardStyle}>
+      <div className={(cardStyle(locationInfo.isFavorite))}>
         <h4>{locationInfo.name}</h4>
-        <button className={favStyle}
+        <button className={favStyle(locationInfo.isFavorite)}
           onClick={(event) => {
             event.preventDefault();
             checkUser(locationInfo);
@@ -88,14 +49,16 @@ const LocationCard = (props) => {
       <h5>{locationInfo.location.formattedAddress[1]}</h5>
       <h5>{locationInfo.rating} rating from {locationInfo.ratingSignals} reviews
       </h5>
-      {locationMenu}
-      <h5 className='directions'>
-        <a href={locationDirections}
-          className='directions'
-          target="_blank">
-        directions
-        </a>
-      </h5>
+      <div className='menu-directions-container'>
+        <h5 className='directions'>
+          <a href={locationDirections}
+            className='directions'
+            target="_blank">
+          directions
+          </a>
+        </h5>
+        {locationMenu(locationInfo)}        
+      </div>
       {
         locationInfo.isExtended === false &&
         <button
