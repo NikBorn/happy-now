@@ -4,8 +4,7 @@ import fire from '../../fire.js';
 import { switchExtended } from '../../Utils/helper.js';
 import { toggleExtended } from '../../actions';
 import { connect } from 'react-redux';
-
-
+import PropTypes from 'prop-types';
 
 
 class HappyHourForm extends Component {
@@ -13,7 +12,7 @@ class HappyHourForm extends Component {
     super();
     this.state = {
       Sunday: ['', '', ''],
-      Monday: ['x', 'x', 'x'],
+      Monday: ['', '', ''],
       Tuesday: ['', '', ''],
       Wednesday: ['', '', ''],
       Thursday: ['', '', ''],
@@ -48,7 +47,6 @@ class HappyHourForm extends Component {
   }
 
   render() {
-    console.log(this.props.locationInfo.isExtended);
     const dailyForm = DailyHappyHourForm;
     const daysArray = 
     ['Monday', 
@@ -102,6 +100,12 @@ class HappyHourForm extends Component {
     );
   }
 }
+
+HappyHourForm.propTypes = {
+  locationInfo: PropTypes.object,
+  toggleExtended: PropTypes.func
+};
+
 
 const mapDispatchToProps = (dispatch) => {
   return {
