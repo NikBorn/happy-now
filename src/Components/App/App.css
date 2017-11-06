@@ -20,7 +20,7 @@ html {
 }
 
 h5 {
-  max-width: 200px;
+  max-width: 220px;
   margin: 0 auto;
 }
 
@@ -51,7 +51,7 @@ h5 {
   display: block;
   color: #111214;
   /* padding-bottom: 16px; */
-  height: 220px;
+  height: 200px;
   overflow: hidden;
   position: relative;
 }
@@ -74,9 +74,9 @@ h5 {
   top: 4px;
 }
 
-/* .favorite-button-selected {
-  color: #f7f121;
-} */
+.favorite-button-selected {
+  color: #111214;
+}
 
 .favorite-button:hover {
   color: #808589;
@@ -89,7 +89,7 @@ h5 {
 .header-section {
   background-color: #11121495;
   color: #dcd727;
-  padding: 20px 0 30px 0;
+  padding: 10px 0 30px 0;
   display: block;
   text-shadow: 0 0 15px black;
   /* margin-bottom: 14px; */
@@ -244,6 +244,34 @@ input {
 }
 
 .happy-hour-btn {
-  margin: 16px auto;
+  margin: 12px auto;
   display: block;
+}
+
+.cancel-add-hh {
+  background-color: red;
+  color: white;
+  /* position: absolute; */
+  width: 24px;
+  height: 26px;
+  right: 10px;
+  bottom: 10px;
+  padding-bottom: 10px;
+  margin: 0 auto;
+  font-weight: bold;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;  
+}
+
+.cancel-add-hh:hover {
+  color: #F4F3F2;
+}
+
+.menu-directions-container {
+  display: flex;
+  justify-content: space-around;
+  /* width: 200px; */
 }

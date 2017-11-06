@@ -18,23 +18,23 @@ class HappyHourForm extends Component {
       Wednesday: ['', '', ''],
       Thursday: ['', '', ''],
       Friday: ['', '', ''],
-      Saturday: ['', '', ''],
+      Saturday: ['', '', '']
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(day, name, input) {
-    let currentState = [...this.state[day]]
+    let currentState = [...this.state[day]];
     if (name === 'startingHours') {
-      currentState.splice(0, 1, input)
+      currentState.splice(0, 1, input);
     }
     if (name === 'endingHours') {
-      currentState.splice(1, 1, input)
+      currentState.splice(1, 1, input);
     }
     if (name === 'special') {
-      currentState.splice(2, 1, input)
+      currentState.splice(2, 1, input);
     }
-    this.setState({ [day]: currentState })
+    this.setState({ [day]: currentState });
   }
 
   addHappyHourToFirebase() {
@@ -48,6 +48,7 @@ class HappyHourForm extends Component {
   }
 
   render() {
+    console.log(this.props.locationInfo.isExtended);
     const dailyForm = DailyHappyHourForm;
     const daysArray = 
     ['Monday', 
@@ -86,12 +87,17 @@ class HappyHourForm extends Component {
         </table>
         <button className='show-more happy-hour-btn'
           onClick={(event) => {
-            event.preventDefault()
-            this.addHappyHourToFirebase()
+            event.preventDefault();
+            this.addHappyHourToFirebase();
             this.props.toggleExtended(switchExtended(this.props.locationInfo));
 
           }}
         >Submit</button>
+        <button className='cancel-add-hh'
+          onClick={(event)=> {
+            event.preventDefault();
+            this.props.toggleExtended(switchExtended(this.props.locationInfo));
+          }}>x</button> 
       </div>
     );
   }
