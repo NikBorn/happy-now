@@ -13,7 +13,14 @@ class LocationListContainer extends Component {
     const happyHoursFromDB = fire.database().ref('happy-hours');
 
     happyHoursFromDB.on('value', snapshot => {
-      const happyHours = Object.entries(snapshot.val());
+
+      const happyHoursFire = Object.entries(snapshot.val());
+      const happyHours = happyHoursFire.map(happyHour=> {
+        return (
+          Object.assign({fireBaseId: happyHour[0]}, happyHour[1])
+        )
+      })
+      console.log(happyHours)
       this.props.sendHappyHoursToState(happyHours);
     });
   }
