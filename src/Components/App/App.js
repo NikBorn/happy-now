@@ -39,4 +39,3 @@ const App = () => {
 
 
 export default withRouter(App);
-// export default App;

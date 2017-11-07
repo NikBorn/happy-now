@@ -1,13 +1,13 @@
 import React from 'react';
 import { shallow, mount, configure } from 'enzyme';
-import Header from '../Components/Header/Header.js';
+import LocationCard from '../../Components/LocationCard/LocationCard.js';
 import Adapter from 'enzyme-adapter-react-16';
+import { mockLocation } from '../../Utils/mockData.js';
 import configureStore from 'redux-mock-store';
-
 
 configure({ adapter: new Adapter() });
 
-describe('Header', () => {
+describe('LocationCard', () => {
   const mockStore = configureStore();
   const initialState = {
     locations: [],
@@ -17,10 +17,13 @@ describe('Header', () => {
     favorites: []
   };
   const store = mockStore(initialState);
-  let wrapper = shallow(<Header store={store}/>);
+  const locationInfo = mockLocation;
+  const wrapper = shallow(
+    <LocationCard store={store} 
+      key={locationInfo.id} 
+      locationInfo={locationInfo} />);
 
-  it('should create an instance of a card', () => {
+  it('should always match the Snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   });
-
 });
