@@ -1,27 +1,26 @@
 import React from 'react';
 import { shallow, mount, configure } from 'enzyme';
-import LocationList from '../Components/LocationList/LocationList.js';
+import Header from '../../Components/Header/Header.js';
 import Adapter from 'enzyme-adapter-react-16';
-import { MockLocation, mockLocationsResponse } from '../Utils/mockData.js';
 import configureStore from 'redux-mock-store';
+
 
 configure({ adapter: new Adapter() });
 
-describe('LocationList', () => {
+describe('Header', () => {
   const mockStore = configureStore();
-  const stateLocations = mockLocationsResponse;
   const initialState = {
-    locations: stateLocations,
+    locations: [],
     userLocation: {},
     activeUser: null,
     count: 10,
     favorites: []
   };
   const store = mockStore(initialState);
-  const wrapper = shallow(
-    <LocationList store={store} locations={stateLocations} />);
+  let wrapper = shallow(<Header store={store}/>);
 
-  it('shold always match the Snapshot', () => {
+  it('should create an instance of a card', () => {
     expect(wrapper).toMatchSnapshot();
   });
+
 });

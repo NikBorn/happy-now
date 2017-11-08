@@ -14,7 +14,7 @@ class LocationListContainer extends Component {
 
     happyHoursFromDB.on('value', snapshot => {
       const happyHours = Object.entries(snapshot.val());
-      sendHappyHoursToState(happyHours);
+      this.props.sendHappyHoursToState(happyHours);
     });
   }
 

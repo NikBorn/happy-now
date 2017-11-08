@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount, configure } from 'enzyme';
-import ShowMoreButton from '../Components/ShowMoreButton/ShowMoreButton.js';
+import ShowMoreButton from '../../Components/ShowMoreButton/ShowMoreButton.js';
 import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
 
