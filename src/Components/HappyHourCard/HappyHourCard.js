@@ -1,16 +1,18 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 
 const HappyHourCard = (props) => {
-  const happyHours = props.happyHourInfo.happyHours
+  const happyHours = props.happyHourInfo.happyHours;
   // console.log(happyHours)
-  const happyKeys = Object.keys(happyHours)
+  const happyKeys = Object.keys(happyHours);
 
   const displayHours = happyKeys.map(day=> {
-    return(
+    return (
       <tr key={day}>
         <td className='happy-data'>
           {day}
-          </td>
+        </td>
         <td className='happy-data'>
           {happyHours[day][0] + '-' + happyHours[day][1]}
         </td>
@@ -18,32 +20,36 @@ const HappyHourCard = (props) => {
           {happyHours[day][2]}
         </td>
       </tr>
-    )
-  })
+    );
+  });
 
-  console.log(happyKeys)
   return (
     <div className='happy-hour-card'>
       <h4 className='happy-header'>{props.happyHourInfo.name}</h4>
       <table>
         <tbody>
-        <tr>
-          <th>
+          <tr>
+            <th>
             Day
-          </th>
-          <th>
+            </th>
+            <th>
             Happy Hours
-          </th>
-          <th>
+            </th>
+            <th>
             Happy Hour Specials
-          </th>
-        </tr>
-        { displayHours }
+            </th>
+          </tr>
+          { displayHours }
         </tbody>
       </table>
 
     </div>
-  )
-}
+  );
+};
+
+
+HappyHourCard.propTypes = {
+  happyHourInfo: PropTypes.object
+};
 
 export default HappyHourCard;
