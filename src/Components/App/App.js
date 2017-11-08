@@ -145,8 +145,3 @@ LocationListContainer.propTypes = {
 };
 
 export default connect(mapSTP, mapDTP)(withRouter(App));
-
-<<<<<<< HEAD
-export default withRouter(App);
-=======
->>>>>>> have happy hour data displaying
