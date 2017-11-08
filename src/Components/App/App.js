@@ -103,7 +103,6 @@ class App extends Component {
 
 App.propTypes = {
   setLocations: PropTypes.func,
-  showFavorites: PropTypes.bool,
   count: PropTypes.number,
   locations: PropTypes.array,
   favorites: PropTypes.array,
@@ -115,7 +114,6 @@ const mapSTP = (state) => {
   return {
     locations: state.locations,
     count: state.count,
-    showFavorites: state.showFavorites,
     favorites: state.favorites,
     happyHours: state.happyHours
   };
@@ -134,7 +132,6 @@ const mapDTP = (dispatch) => {
 
 LocationListContainer.propTypes = {
   setLocations: PropTypes.func,
-  showFavorites: PropTypes.bool,
   count: PropTypes.number,
   locations: PropTypes.array,
   favorites: PropTypes.array,

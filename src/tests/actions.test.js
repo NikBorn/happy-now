@@ -4,13 +4,12 @@ import {
   mockLocationsResponse } from '../Utils/mockData.js';
 import { 
   setLocations, 
-  toggleFavorite, 
   setActiveuser, 
   increaseCount, 
   addFavorite,
   removeFavorite, 
-  toggleShowFavorites, 
   toggleExtended, 
+  toggleFavorite,
   sendHappyHoursToState } from '../actions/index.js';
 
 describe('actions', () => {
@@ -72,15 +71,6 @@ describe('actions', () => {
     expect(removeFavorite(mockLocation)).toEqual(expectation);
   });
 
-  it('toggleShowFavorites should return an object with a type' + 
-  'and a payload of bool', () => {
-    const expectation = {
-      type: 'TOGGLE_SHOW_FAVORITES',
-      bool: true
-    };
-
-    expect(toggleShowFavorites(true)).toEqual(expectation);
-  });
 
   it('toggleExtended should return an object with a type' + 
   'and a payload of object', () => {

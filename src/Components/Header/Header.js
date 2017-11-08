@@ -1,6 +1,5 @@
 import React from 'react';
 import SignIn from '../SignIn/SignIn';
-import {toggleShowFavorites} from '../../actions/index.js';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -16,23 +15,5 @@ const Header = (props) => {
   );
 };
 
-Header.propTypes = {
-  toggleShowFavorites: PropTypes.func,
-  showFAvs: PropTypes.bool
-};
 
-const mapStateToProps = (state) => {
-  return {
-    showFavs: state.showFavs
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleShowFavorites: (bool) => {
-      dispatch(toggleShowFavorites(bool));
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default Header;

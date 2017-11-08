@@ -1,5 +1,4 @@
 import React from 'react';
-import { toggleShowFavorites } from '../../actions/index.js';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom'
 
@@ -26,12 +25,5 @@ const NavBar = () => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleShowFavorites: (bool) => {
-      dispatch(toggleShowFavorites(bool));
-    }
-  };
-};
 
 export default NavBar;
