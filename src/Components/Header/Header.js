@@ -12,13 +12,6 @@ const Header = (props) => {
       <h1>HappyNow?</h1>
       <h4>Find current and upcoming happy hour specials near you</h4>
       <SignIn />
-      <button className='show-favorites-button'
-        onClick={event=> {
-          event.preventDefault();
-          props.toggleShowFavorites(true);
-        }}>
-        Favorites
-      </button>
     </div>
   );
 };
