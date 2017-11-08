@@ -437,3 +437,41 @@ export const mockUser = {
   accessToken: "eyJhbGciOiJSUzI1NiIsImtpZCI6ImFhNmNlMmJhM2NmMDQ3MGQxODU1ZDU4NDMxYzcwM2E4NGMyN2U5MDAifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vaGFwcHktbm93IiwibmFtZSI6Ik5payBCb3JuZW1laWVyIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS8tWGRVSXFkTWtDV0EvQUFBQUFBQUFBQUkvQUFBQUFBQUFBQUEvNDI1MnJzY2J2NU0vcGhvdG8uanBnIiwiYXVkIjoiaGFwcHktbm93IiwiYXV0aF90aW1lIjoxNTA5NTc5MTg2LCJ1c2VyX2lkIjoiNlVDZG43NW84Z09MMXNEUlpMRjk0SlZEdHM5MiIsInN1YiI6IjZVQ2RuNzVvOGdPTDFzRFJaTEY5NEpWRHRzOTIiLCJpYXQiOjE1MDk1NzkxODYsImV4cCI6MTUwOTU4Mjc4NiwiZW1haWwiOiJuaWtyYm9ybmVtZWllckBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJnb29nbGUuY29tIjpbIjEwMjY5MTAzOTE4MjEyNDc1Nzk0MyJdLCJlbWFpbCI6WyJuaWtyYm9ybmVtZWllckBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJnb29nbGUuY29tIn19.DJHNk2uttbz_KYVXe7gJN0wEgovIZSshyXpBxWZ57KH_i4heVIUfSK_U1ojOJ6g0c258_2lZVDAcfQZr2bPAcF2uB61tE1m3UmuHf3kA1lBM3SKiPibWP0Ku716qv6M85AOTVEqrI6cMQ1Hn9jcLAsGJJsyEi6zZme94AB7V3Ppf4OqqwT1uPRPwA5TCepR45H374C5_k8cUe3yfyMeei_q7et-zDiv0eq7oKD29im-WS2fs9FyNSUv5S6adzw47uPb1-8wH5nnw7rlyDt39s2udkLxXVr1rJ10YRSTh1WC4_j41IGS5H5cbF_L4qgh6mEcBM91WFb_XuJKKmnbc8w",
   expirationTime: 1509582786564
 };
+
+export const mockHappyHourInfo = [
+  {
+    fireBaseId: "-KyD7aLGYd2eyMbtQgqa",
+    happyHours: {
+      Friday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"],
+      Monday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"],
+      Saturday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"],
+      Sunday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"],
+      Thursday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"],
+      Tuesday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"],
+      Wednesday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"]
+    },
+    locationId: "4b044f71f964a5202e5322e3",
+    name: "Paddy's Pub"
+  }
+];

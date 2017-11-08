@@ -38,13 +38,7 @@ h5 {
   width: 100vw;
 }
 
-.map {
-  width: 600px;
-  height: 500px;
-  border: 2px solid #808589;
-  display: inline-block;
-}
-
+.happy-hour-card,
 .location-card {
   background-color: rgba(244, 243, 242, 0.792);
   margin-bottom: 10px;
@@ -54,6 +48,10 @@ h5 {
   height: 200px;
   overflow: hidden;
   position: relative;
+}
+
+.happy-hour-card {
+  height: auto;
 }
 
 .location-card-ext {
@@ -82,22 +80,17 @@ h5 {
   color: #808589;
 }
 
-/* .favorite-card {
-  background-color: #808589;
-} */
-
 .header-section {
   background-color: #11121495;
   color: #dcd727;
   padding: 10px 0 30px 0;
   display: block;
   text-shadow: 0 0 15px black;
-  /* margin-bottom: 14px; */
 }
 
+.happy-hour-cntr,
 .location-list,
 .loading-screen {
-  /* margin-top: 6px; */
   display: inline-block;
   border: 2px solid #808589;
   width: 420px;
@@ -108,9 +101,15 @@ h5 {
   overflow: scroll;
 }
 
+.happy-hour-cntr {
+  width: 520px;
+}
+
 .loading-screen {
   color: #111214;
-  background-color: #FFF
+  background-color: #FFF;
+  min-width: 420px;
+  width: 100%;
 }
 
 .login-logout {
@@ -171,6 +170,7 @@ h5 {
   background-color: #dcd727;
 }
 
+
 .location-list-container {
   text-align: center;
   display: flex;
@@ -196,14 +196,6 @@ a {
   width: 100%;
   background-color: #dcd727;
 }
-
-/* td {
-  width: 33%;
-}
-
-th {
-  width: 33%;
-} */
 
 th,
 td,
@@ -307,4 +299,15 @@ li a {
 li a:hover {
   background-color: #dcd727;
   color: #111214;
+}
+
+.happy-data {
+  font-size: 13px;
+  padding: 4px;
+  background-color: #ffffff99;
+  color: #111214;
+}
+
+.happy-header {
+  background-color: #dcd727;
 }

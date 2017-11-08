@@ -8,17 +8,16 @@ import configureStore from 'redux-mock-store';
 configure({ adapter: new Adapter() });
 
 describe('App', () => {
-  // const mockStore = configureStore();
-  // const initialState = {
-  //   locations: [],
-  //   userLocation: {},
-  //   activeUser: null,
-  //   count: 10,
-  //   favorites: []
-  // };
-  // const store = mockStore(initialState);
-  // let wrapper = shallow(<App store={store} />);
-  let wrapper = shallow(<App />);
+  const mockStore = configureStore();
+  const initialState = {
+    locations: [],
+    userLocation: {},
+    activeUser: null,
+    count: 10,
+    favorites: []
+  };
+  const store = mockStore(initialState);
+  let wrapper = shallow(<App store={store} />);
 
   it('should match the snapshot exactly', () => {
     expect(wrapper).toMatchSnapshot();

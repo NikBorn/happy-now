@@ -1,0 +1,296 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HappyHourContainer should match the snapshot everytime 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <HappyHourContainer
+    locations={
+        Array [
+            Object {
+              "fireBaseId": "-KyD7aLGYd2eyMbtQgqa",
+              "happyHours": Object {
+                "Friday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+                "Monday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+                "Saturday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+                "Sunday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+                "Thursday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+                "Tuesday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+                "Wednesday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+              },
+              "locationId": "4b044f71f964a5202e5322e3",
+              "name": "Paddy's Pub",
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": null,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <HappyHourCard
+          happyHourInfo={
+                    Object {
+                              "fireBaseId": "-KyD7aLGYd2eyMbtQgqa",
+                              "happyHours": Object {
+                                "Friday": Array [
+                                  "2:00PM",
+                                  "6:00PM",
+                                  "FREE BEER TOMORROW!",
+                                ],
+                                "Monday": Array [
+                                  "2:00PM",
+                                  "6:00PM",
+                                  "FREE BEER TOMORROW!",
+                                ],
+                                "Saturday": Array [
+                                  "2:00PM",
+                                  "6:00PM",
+                                  "FREE BEER TOMORROW!",
+                                ],
+                                "Sunday": Array [
+                                  "2:00PM",
+                                  "6:00PM",
+                                  "FREE BEER TOMORROW!",
+                                ],
+                                "Thursday": Array [
+                                  "2:00PM",
+                                  "6:00PM",
+                                  "FREE BEER TOMORROW!",
+                                ],
+                                "Tuesday": Array [
+                                  "2:00PM",
+                                  "6:00PM",
+                                  "FREE BEER TOMORROW!",
+                                ],
+                                "Wednesday": Array [
+                                  "2:00PM",
+                                  "6:00PM",
+                                  "FREE BEER TOMORROW!",
+                                ],
+                              },
+                              "locationId": "4b044f71f964a5202e5322e3",
+                              "name": "Paddy's Pub",
+                            }
+          }
+/>,
+      ],
+      "className": "happy-hour-cntr",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "4b044f71f964a5202e5322e3",
+        "nodeType": "function",
+        "props": Object {
+          "happyHourInfo": Object {
+            "fireBaseId": "-KyD7aLGYd2eyMbtQgqa",
+            "happyHours": Object {
+              "Friday": Array [
+                "2:00PM",
+                "6:00PM",
+                "FREE BEER TOMORROW!",
+              ],
+              "Monday": Array [
+                "2:00PM",
+                "6:00PM",
+                "FREE BEER TOMORROW!",
+              ],
+              "Saturday": Array [
+                "2:00PM",
+                "6:00PM",
+                "FREE BEER TOMORROW!",
+              ],
+              "Sunday": Array [
+                "2:00PM",
+                "6:00PM",
+                "FREE BEER TOMORROW!",
+              ],
+              "Thursday": Array [
+                "2:00PM",
+                "6:00PM",
+                "FREE BEER TOMORROW!",
+              ],
+              "Tuesday": Array [
+                "2:00PM",
+                "6:00PM",
+                "FREE BEER TOMORROW!",
+              ],
+              "Wednesday": Array [
+                "2:00PM",
+                "6:00PM",
+                "FREE BEER TOMORROW!",
+              ],
+            },
+            "locationId": "4b044f71f964a5202e5322e3",
+            "name": "Paddy's Pub",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": null,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <HappyHourCard
+            happyHourInfo={
+                        Object {
+                                    "fireBaseId": "-KyD7aLGYd2eyMbtQgqa",
+                                    "happyHours": Object {
+                                      "Friday": Array [
+                                        "2:00PM",
+                                        "6:00PM",
+                                        "FREE BEER TOMORROW!",
+                                      ],
+                                      "Monday": Array [
+                                        "2:00PM",
+                                        "6:00PM",
+                                        "FREE BEER TOMORROW!",
+                                      ],
+                                      "Saturday": Array [
+                                        "2:00PM",
+                                        "6:00PM",
+                                        "FREE BEER TOMORROW!",
+                                      ],
+                                      "Sunday": Array [
+                                        "2:00PM",
+                                        "6:00PM",
+                                        "FREE BEER TOMORROW!",
+                                      ],
+                                      "Thursday": Array [
+                                        "2:00PM",
+                                        "6:00PM",
+                                        "FREE BEER TOMORROW!",
+                                      ],
+                                      "Tuesday": Array [
+                                        "2:00PM",
+                                        "6:00PM",
+                                        "FREE BEER TOMORROW!",
+                                      ],
+                                      "Wednesday": Array [
+                                        "2:00PM",
+                                        "6:00PM",
+                                        "FREE BEER TOMORROW!",
+                                      ],
+                                    },
+                                    "locationId": "4b044f71f964a5202e5322e3",
+                                    "name": "Paddy's Pub",
+                                  }
+            }
+/>,
+        ],
+        "className": "happy-hour-cntr",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "4b044f71f964a5202e5322e3",
+          "nodeType": "function",
+          "props": Object {
+            "happyHourInfo": Object {
+              "fireBaseId": "-KyD7aLGYd2eyMbtQgqa",
+              "happyHours": Object {
+                "Friday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+                "Monday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+                "Saturday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+                "Sunday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+                "Thursday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+                "Tuesday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+                "Wednesday": Array [
+                  "2:00PM",
+                  "6:00PM",
+                  "FREE BEER TOMORROW!",
+                ],
+              },
+              "locationId": "4b044f71f964a5202e5322e3",
+              "name": "Paddy's Pub",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
