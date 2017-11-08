@@ -16,6 +16,7 @@ ShallowWrapper {
           }
     }
 />,
+
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
