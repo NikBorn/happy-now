@@ -438,38 +438,40 @@ export const mockUser = {
   expirationTime: 1509582786564
 };
 
-export const mockHappyHourInfo = {
-  fireBaseId: "-KyD7aLGYd2eyMbtQgqa",
-  happyHours: {
-    Friday: [
-      "2:00PM", 
-      "6:00PM", 
-      "FREE BEER TOMORROW!"],
-    Monday: [
-      "2:00PM", 
-      "6:00PM", 
-      "FREE BEER TOMORROW!"],
-    Saturday: [
-      "2:00PM", 
-      "6:00PM", 
-     "FREE BEER TOMORROW!"],
-    Sunday: [
-      "2:00PM", 
-      "6:00PM", 
-      "FREE BEER TOMORROW!"],
-    Thursday: [
-      "2:00PM", 
-      "6:00PM", 
-      "FREE BEER TOMORROW!"],
-    Tuesday: [
-      "2:00PM", 
-      "6:00PM", 
-      "FREE BEER TOMORROW!"],
-    Wednesday: [
-      "2:00PM", 
-      "6:00PM", 
-      "FREE BEER TOMORROW!"],
-  },
-  locationId: "4b044f71f964a5202e5322e3",
-  name: "Paddy's Pub"
-}
+export const mockHappyHourInfo = [
+  {
+    fireBaseId: "-KyD7aLGYd2eyMbtQgqa",
+    happyHours: {
+      Friday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"],
+      Monday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"],
+      Saturday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"],
+      Sunday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"],
+      Thursday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"],
+      Tuesday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"],
+      Wednesday: [
+        "2:00PM", 
+        "6:00PM", 
+        "FREE BEER TOMORROW!"]
+    },
+    locationId: "4b044f71f964a5202e5322e3",
+    name: "Paddy's Pub"
+  }
+];

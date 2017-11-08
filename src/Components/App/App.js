@@ -12,10 +12,6 @@ import { setLocations, sendHappyHoursToState } from '../../actions/index';
 import { connect } from 'react-redux';
 import fire from '../../fire.js';
 
-
-
-
-
 class App extends Component {
   constructor() {
     super();
@@ -113,13 +109,23 @@ class App extends Component {
   
 }
 
+App.propTypes = {
+  setLocations: PropTypes.func,
+  showFavorites: PropTypes.bool,
+  count: PropTypes.number,
+  locations: PropTypes.array,
+  favorites: PropTypes.array,
+  happyHours: PropTypes.array,
+  sendHappyHoursToState: PropTypes.func
+};
+
 const mapSTP = (state) => {
   return {
     locations: state.locations,
     count: state.count,
     showFavorites: state.showFavorites,
     favorites: state.favorites,
-    happyHours: state.happyHours,
+    happyHours: state.happyHours
   };
 };
 
@@ -134,14 +140,6 @@ const mapDTP = (dispatch) => {
   };
 };
 
-LocationListContainer.propTypes = {
-  setLocations: PropTypes.func,
-  showFavorites: PropTypes.bool,
-  count: PropTypes.number,
-  locations: PropTypes.array,
-  favorites: PropTypes.array,
-  happyHours: PropTypes.array,
-  sendHappyHoursToState: PropTypes.func
-};
+
 
 export default connect(mapSTP, mapDTP)(withRouter(App));
