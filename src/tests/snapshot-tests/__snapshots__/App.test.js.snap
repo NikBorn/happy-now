@@ -4,7 +4,7 @@ exports[`App should match the snapshot exactly 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <Connect(withRouter(App))
+  Symbol(enzyme.__unrendered__): <withRouter(Connect(App))
     store={
         Object {
             "clearActions": [Function],
@@ -16,7 +16,6 @@ ShallowWrapper {
           }
     }
 />,
-
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -27,42 +26,9 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": null,
-    "nodeType": "function",
+    "nodeType": "class",
     "props": Object {
-      "count": 10,
-      "favorites": Array [],
-      "happyHours": undefined,
-      "locations": Array [],
-      "sendHappyHoursToState": [Function],
-      "setLocations": [Function],
-      "showFavorites": undefined,
-      "store": Object {
-        "clearActions": [Function],
-        "dispatch": [Function],
-        "getActions": [Function],
-        "getState": [Function],
-        "replaceReducer": [Function],
-        "subscribe": [Function],
-      },
-      "storeSubscription": Subscription {
-        "listeners": Object {
-          "clear": [Function],
-          "get": [Function],
-          "notify": [Function],
-          "subscribe": [Function],
-        },
-        "onStateChange": [Function],
-        "parentSub": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "unsubscribe": [Function],
-      },
+      "render": [Function],
     },
     "ref": null,
     "rendered": null,
@@ -72,42 +38,9 @@ ShallowWrapper {
     Object {
       "instance": null,
       "key": null,
-      "nodeType": "function",
+      "nodeType": "class",
       "props": Object {
-        "count": 10,
-        "favorites": Array [],
-        "happyHours": undefined,
-        "locations": Array [],
-        "sendHappyHoursToState": [Function],
-        "setLocations": [Function],
-        "showFavorites": undefined,
-        "store": Object {
-          "clearActions": [Function],
-          "dispatch": [Function],
-          "getActions": [Function],
-          "getState": [Function],
-          "replaceReducer": [Function],
-          "subscribe": [Function],
-        },
-        "storeSubscription": Subscription {
-          "listeners": Object {
-            "clear": [Function],
-            "get": [Function],
-            "notify": [Function],
-            "subscribe": [Function],
-          },
-          "onStateChange": [Function],
-          "parentSub": undefined,
-          "store": Object {
-            "clearActions": [Function],
-            "dispatch": [Function],
-            "getActions": [Function],
-            "getState": [Function],
-            "replaceReducer": [Function],
-            "subscribe": [Function],
-          },
-          "unsubscribe": [Function],
-        },
+        "render": [Function],
       },
       "ref": null,
       "rendered": null,
