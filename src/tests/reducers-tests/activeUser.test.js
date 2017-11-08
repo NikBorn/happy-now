@@ -1,5 +1,3 @@
-import React from 'react';
-import Adapter from 'enzyme-adapter-react-16';
 import activeUser from '../../reducers/activeUser.js';
 import mockUser from '../../Utils/mockData.js';
 

@@ -151,7 +151,6 @@ export const cleanedData = [
       facebook: "115875251829275",
       facebookName: "Glenn Bar"
     },
-    isFavorite: false,
     id: "4d8a35c976e1236a99721534"
   },
   {
@@ -168,7 +167,6 @@ export const cleanedData = [
       facebook: "115875251829275",
       facebookName: "Glenn Bar"
     },
-    isFavorite: false,
     id: "4d8a35c976e1236a99725553"
   }
 ];
