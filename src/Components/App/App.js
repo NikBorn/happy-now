@@ -14,9 +14,6 @@ import fire from '../../fire.js';
 import { cleanData } from '../../Utils/helper.js';
 
 class App extends Component {
-  constructor() {
-    super();
-  }
 
   getUserLocation(cback) {
     navigator.geolocation.getCurrentPosition(function (location) {

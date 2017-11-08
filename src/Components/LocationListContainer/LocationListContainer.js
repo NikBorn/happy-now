@@ -4,8 +4,6 @@ import { setLocations, sendHappyHoursToState } from '../../actions/index';
 import { connect } from 'react-redux';
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
 import PropTypes from 'prop-types';
-import fire from '../../fire.js';
-
 
 class LocationListContainer extends Component {
 

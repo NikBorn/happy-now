@@ -1,11 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import HappyHourCard from '../HappyHourCard/HappyHourCard.js';
 import LoadingScreen from '../LoadingScreen/LoadingScreen';
-
-
-
 
 const HappyHourContainer = (props) => {
 

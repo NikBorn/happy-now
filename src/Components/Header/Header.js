@@ -1,10 +1,7 @@
 import React from 'react';
 import SignIn from '../SignIn/SignIn';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 
-
-const Header = (props) => {
+const Header = () => {
 
   return (
     <div className='header-section'>
@@ -14,6 +11,5 @@ const Header = (props) => {
     </div>
   );
 };
-
 
 export default Header;
