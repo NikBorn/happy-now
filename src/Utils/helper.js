@@ -24,3 +24,14 @@ export const handleClick = (location, props) => {
     return props.addFavorite(location);
   }
 };
+
+export const cleanData = (res) => {
+  return res.map(place => {
+    return Object.assign({
+      isExtended: false,
+      isFavorite: false,
+      contact: { formattedPhone: 'None Listed' }
+    }, place.venue);
+  });
+
+};

@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import { setLocations, sendHappyHoursToState } from '../../actions/index';
 import { connect } from 'react-redux';
 import fire from '../../fire.js';
+import { cleanData } from '../../Utils/helper.js';
 
 class App extends Component {
   constructor() {
@@ -38,16 +39,7 @@ class App extends Component {
         method: 'GET'
       })
         .then(response => response.json())
-        .then(response => response.response.groups[0].items)
-        .then(res => {
-          return res.map(place => {
-            return Object.assign({
-              isExtended: false,
-              isFavorite: false,
-              contact: { formattedPhone: 'None Listed' }
-            }, place.venue);
-          });
-        })
+        .then(response => cleanData(response.response.groups[0].items))
         .then(resp => this.props.setLocations(resp));
     });
   }
