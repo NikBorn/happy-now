@@ -290,6 +290,13 @@ export const mockFavLocationArray = [
   }
 ];
 
+export const mockAddFavObj = {
+  name: 'A Bar',
+  isFavorite: true,
+  isExtended: false,
+  id: '1122331'
+}
+
 
 export const mockFavoriteObj = {
     
