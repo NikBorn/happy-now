@@ -26,11 +26,11 @@ export const handleClick = (location, props) => {
 };
 
 export const cleanData = (res) => {
+  console.log(res)
   return res.map(place => {
     return Object.assign({
       isExtended: false,
-      isFavorite: false,
-      contact: { formattedPhone: 'None Listed' }
+      isFavorite: false
     }, place.venue);
   });
 
