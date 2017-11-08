@@ -1,25 +1,26 @@
 import React from 'react';
 import { toggleShowFavorites } from '../../actions/index.js';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
 
   return (
     <ul className='nav-bar'>
       <li className='nav-item'>
-        <a href='/'>
+        <Link to='/'>
           HOME
-        </a>
+        </Link>
       </li>
       <li className='nav-item'>
-        <a href='/happyHours'>
+        <Link to='/happyHours'>
           HAPPY HOURS
-        </a>
+        </Link>
       </li>
       <li className='nav-item'>
-        <a href='/favorites'>
+        <Link to='/favorites'>
           FAVORITES
-        </a>
+        </Link>
       </li>
     </ul>
   );

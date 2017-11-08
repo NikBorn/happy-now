@@ -140,6 +140,4 @@ const mapDTP = (dispatch) => {
   };
 };
 
-
-
-export default connect(mapSTP, mapDTP)(withRouter(App));
+export default withRouter(connect(mapSTP, mapDTP)(App));
