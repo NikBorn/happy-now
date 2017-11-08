@@ -140,4 +140,16 @@ const mapDTP = (dispatch) => {
   };
 };
 
+LocationListContainer.propTypes = {
+  setLocations: PropTypes.func,
+  showFavorites: PropTypes.bool,
+  count: PropTypes.number,
+  locations: PropTypes.array,
+  favorites: PropTypes.array,
+  happyHours: PropTypes.array,
+  sendHappyHoursToState: PropTypes.func
+};
+
 export default withRouter(connect(mapSTP, mapDTP)(App));
+
+
