@@ -2,9 +2,16 @@ import React from 'react';
 import { shallow, mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import configureStore from 'redux-mock-store';
-import { mockLocation, mockLocationFavorite } from '../../Utils/mockData.js';
 import { 
-  switchFavorite, switchExtended, handleClick } from '../../Utils/helper.js';
+  mockLocation, 
+  mockLocationFavorite, 
+  mockDatatoBeCleaned, 
+  cleanedData } from '../../Utils/mockData.js';
+import { 
+  switchFavorite, 
+  switchExtended, 
+  cleanData,
+  handleClick } from '../../Utils/helper.js';
 
 
 configure({ adapter: new Adapter() });
@@ -30,15 +37,5 @@ describe('helper functions', () => {
     switchExtended(selectedLocation);
     expect(selectedLocation.isExtended).toEqual(false);
   });
-
-  // it('should call removeFavorie or addFavorite given a certain location', () => {
-  //   let location = Object.assign({}, mockLocation)
-  //   let addFavorite = jest.fn();
-  //   let props = Object.assign({}, {addFavorite})
-  //   console.log(typeof props.addFavorite)
-  //   expect(location.isFavorite).toEqual(false)
-  //   handleClick(location, props.addFavorite)
-  //   expect(jest.fn().mock.calls.length).toBe(1)
-  // });
 
 });

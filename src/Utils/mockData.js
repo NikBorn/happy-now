@@ -103,6 +103,74 @@ export const mockLocationsResponse = [
   }
 ];
 
+export const mockDatatoBeCleaned = [
+  {
+    name: "Tequila Rock",
+    price: { tier: 2, message: "Moderate", currency: "$" },
+    rating: 6.4,
+    ratingSignals: 399,
+    contact: {
+      phone: "3032551400",
+      formattedPhone: "(303) 255-1400",
+      twitter: "biggyglenn",
+      facebook: "115875251829275",
+      facebookName: "Glenn Bar"
+    },
+    isFavorite: false,
+    id: "4d8a35c976e1236a99721534"
+  },
+  {
+    name: "Paddy's Pub",
+    price: { tier: 1, message: "Moderate", currency: "$" },
+    rating: 3.4,
+    ratingSignals: 107,
+    contact: {
+      phone: "3038675309",
+      formattedPhone: "(303) 867-5309",
+      twitter: "biggyglenn",
+      facebook: "115875251829275",
+      facebookName: "Glenn Bar"
+    },
+    isFavorite: false,
+    id: "4d8a35c976e1236a99725553"
+  }
+];
+
+export const cleanedData = [
+  {
+    isFavorite: false,
+    isExtended: false,
+    name: "Tequila Rock",
+    price: { tier: 2, message: "Moderate", currency: "$" },
+    rating: 6.4,
+    ratingSignals: 399,
+    contact: {
+      phone: "3032551400",
+      formattedPhone: "(303) 255-1400",
+      twitter: "biggyglenn",
+      facebook: "115875251829275",
+      facebookName: "Glenn Bar"
+    },
+    id: "4d8a35c976e1236a99721534"
+  },
+  {
+    isFavorite: false,
+    isExtended: false,
+    name: "Paddy's Pub",
+    price: { tier: 1, message: "Moderate", currency: "$" },
+    rating: 3.4,
+    ratingSignals: 107,
+    contact: {
+      phone: "3038675309",
+      formattedPhone: "(303) 867-5309",
+      twitter: "biggyglenn",
+      facebook: "115875251829275",
+      facebookName: "Glenn Bar"
+    },
+    id: "4d8a35c976e1236a99725553"
+  }
+];
+
 export const mockFavLocationArray = [
   {
     isFavorite: false,
@@ -221,6 +289,13 @@ export const mockFavLocationArray = [
     id: "4d8a35c976e1236a99725553"
   }
 ];
+
+export const mockAddFavObj = {
+  name: 'A Bar',
+  isFavorite: true,
+  isExtended: false,
+  id: '1122331'
+}
 
 
 export const mockFavoriteObj = {

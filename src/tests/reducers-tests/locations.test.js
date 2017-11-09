@@ -1,7 +1,6 @@
-import React from 'react';
-import Adapter from 'enzyme-adapter-react-16';
 import locations from '../../reducers/locations.js';
-import { mockLocationsResponse, 
+import { 
+  mockLocationsResponse, 
   mockFavLocationArray, 
   mockFavoriteObj } from '../../Utils/mockData.js';
 

@@ -11,11 +11,9 @@ import PropTypes from 'prop-types';
 import { setLocations, sendHappyHoursToState } from '../../actions/index';
 import { connect } from 'react-redux';
 import fire from '../../fire.js';
+import { cleanData } from '../../Utils/helper.js';
 
 class App extends Component {
-  constructor() {
-    super();
-  }
 
   getUserLocation(cback) {
     navigator.geolocation.getCurrentPosition(function (location) {
@@ -38,16 +36,7 @@ class App extends Component {
         method: 'GET'
       })
         .then(response => response.json())
-        .then(response => response.response.groups[0].items)
-        .then(res => {
-          return res.map(place => {
-            return Object.assign({
-              isExtended: false,
-              isFavorite: false,
-              contact: { formattedPhone: 'None Listed' }
-            }, place.venue);
-          });
-        })
+        .then(response => cleanData(response.response.groups[0].items))
         .then(resp => this.props.setLocations(resp));
     });
   }
@@ -111,7 +100,6 @@ class App extends Component {
 
 App.propTypes = {
   setLocations: PropTypes.func,
-  showFavorites: PropTypes.bool,
   count: PropTypes.number,
   locations: PropTypes.array,
   favorites: PropTypes.array,
@@ -123,7 +111,6 @@ const mapSTP = (state) => {
   return {
     locations: state.locations,
     count: state.count,
-    showFavorites: state.showFavorites,
     favorites: state.favorites,
     happyHours: state.happyHours
   };
@@ -140,4 +127,15 @@ const mapDTP = (dispatch) => {
   };
 };
 
+LocationListContainer.propTypes = {
+  setLocations: PropTypes.func,
+  count: PropTypes.number,
+  locations: PropTypes.array,
+  favorites: PropTypes.array,
+  happyHours: PropTypes.array,
+  sendHappyHoursToState: PropTypes.func
+};
+
 export default withRouter(connect(mapSTP, mapDTP)(App));
+
+

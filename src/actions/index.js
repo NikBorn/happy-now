@@ -39,13 +39,6 @@ export const removeFavorite = (location) => {
   };
 };
 
-export const toggleShowFavorites = (bool) => {
-  return {
-    type: 'TOGGLE_SHOW_FAVORITES',
-    bool
-  };
-};
-
 export const toggleExtended = (location) => {
   return {
     type: 'TOGGLE_EXTENDED_CARD',
